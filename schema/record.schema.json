@@ -1,0 +1,120 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://your-domain.org/schemas/record.schema.json",
+    "title": "Lit2Vec Record",
+    "description": "A single normalized publication record from the Lit2Vec dataset, including metadata, chunked full text, embeddings, and license flags.",
+    "type": "object",
+    "required": [
+      "record_id",
+      "title",
+      "abstract",
+      "authors",
+      "published_date",
+      "doi",
+      "source",
+      "license_final",
+      "license_allows_derivatives",
+      "subfield",
+      "paragraphs",
+      "paragraph_embeddings"
+    ],
+    "properties": {
+      "record_id": {
+        "type": "string",
+        "description": "Unique identifier for this record, e.g., hash of DOI or OpenAlex ID."
+      },
+      "title": {
+        "type": "string",
+        "description": "Normalized title of the publication."
+      },
+      "abstract": {
+        "type": ["string", "null"],
+        "description": "Normalized abstract; may be null if missing."
+      },
+      "authors": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "List of author full names."
+      },
+      "published_date": {
+        "type": "string",
+        "format": "date",
+        "description": "Publication date in ISO format (YYYY-MM-DD)."
+      },
+      "doi": {
+        "type": ["string", "null"],
+        "description": "Digital Object Identifier (DOI) if available."
+      },
+      "source": {
+        "type": "string",
+        "description": "Source of the full text (e.g., openalex, unpaywall, publisher)."
+      },
+  
+      "license_final": {
+        "type": "string",
+        "description": "Resolved license string used for redistribution decision (e.g., CC-BY-4.0)."
+      },
+      "license_allows_derivatives": {
+        "type": "boolean",
+        "description": "Whether this record’s license permits redistribution of derivative works (e.g., transformed text or embeddings)."
+      },
+      "license_sources": {
+        "type": "object",
+        "properties": {
+          "unpaywall": { "type": ["string", "null"] },
+          "crossref": { "type": ["string", "null"] },
+          "openalex": { "type": ["string", "null"] }
+        },
+        "description": "Raw license strings as reported by each source."
+      },
+  
+      "subfield": {
+        "type": "string",
+        "description": "Predicted chemistry subfield label (e.g., analytical_chemistry, inorganic_chemistry, others)."
+      },
+  
+      "paragraphs": {
+        "type": "array",
+        "description": "List of normalized text paragraphs from the full text.",
+        "items": {
+          "type": "string"
+        }
+      },
+  
+      "paragraph_embeddings": {
+        "type": "array",
+        "description": "List of vector embeddings for each paragraph, same order as 'paragraphs'.",
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 1024,
+          "maxItems": 1024
+        }
+      },
+  
+      "summary_tldr": {
+        "type": ["string", "null"],
+        "description": "Optional: automatically generated TL;DR-style summary."
+      },
+      "classifier_confidence": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 1,
+        "description": "Confidence score from the subfield classifier."
+      },
+      "embedding_model": {
+        "type": "string",
+        "description": "Hugging Face model ID used for embedding (e.g., intfloat/e5-base-v2)."
+      },
+      "embedding_version": {
+        "type": "string",
+        "description": "Hash of model version or commit."
+      }
+    },
+    "additionalProperties": false
+  }
+  

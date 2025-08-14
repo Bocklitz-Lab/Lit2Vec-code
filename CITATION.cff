@@ -1,0 +1,40 @@
+cff-version: 1.2.0
+message: "If you use this dataset or code, please cite the following work."
+title: "Lit2Vec: a CC-licensed corpus of chemistry literature with paragraph embeddings"
+authors:
+  - family-names: YourLastName
+    given-names: YourFirstName
+    orcid: https://orcid.org/0000-0000-0000-0000
+  - family-names: CoauthorLast
+    given-names: CoauthorFirst
+    orcid: https://orcid.org/1111-1111-1111-1111
+  - family-names: AnotherLast
+    given-names: AnotherFirst
+    orcid: https://orcid.org/2222-2222-2222-2222
+date-released: 2025-08-14
+version: 1.0.0
+doi: 10.5281/zenodo.XXXXXXX
+repository-code: https://github.com/YOUR_ORG/lit2vec
+license: Apache-2.0
+keywords:
+  - chemistry
+  - open access
+  - embeddings
+  - NLP
+  - FAIR data
+  - scientific literature
+  - retrieval
+type: dataset
+preferred-citation:
+  type: article
+  title: "Lit2Vec: a CC-licensed corpus of chemistry literature with paragraph embeddings for retrieval-augmented research"
+  author:
+    - family-names: YourLastName
+      given-names: YourFirstName
+    - family-names: CoauthorLast
+      given-names: CoauthorFirst
+    - family-names: AnotherLast
+      given-names: AnotherFirst
+  journal: Scientific Data
+  year: 2025
+  doi: 10.1038/s41597-20XX-XXX

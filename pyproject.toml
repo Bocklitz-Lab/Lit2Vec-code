@@ -1,0 +1,91 @@
+[build-system]
+requires = ["setuptools>=65", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lit2vec"
+version = "1.0.0"
+description = "Open chemistry corpus with full-text paragraph embeddings"
+authors = [
+  {name = "Your Name", email = "your.email@example.org"},
+  {name = "Coauthor Name", email = "coauthor@university.edu"}
+]
+license = {text = "Apache-2.0"}
+readme = "README.md"
+requires-python = ">=3.10"
+keywords = ["chemistry", "embedding", "nlp", "retrieval", "dataset", "open science"]
+classifiers = [
+  "License :: OSI Approved :: Apache Software License",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Topic :: Scientific/Engineering :: Information Analysis",
+  "Topic :: Scientific/Engineering :: Chemistry",
+  "Intended Audience :: Science/Research"
+]
+
+dependencies = [
+  "numpy >= 1.24",
+  "pandas >= 2.1",
+  "scikit-learn >= 1.3",
+  "datasets >= 2.18.0",
+  "sentence-transformers >= 2.5",
+  "faiss-cpu >= 1.7.4",
+  "zstandard >= 0.22.0",
+  "tqdm >= 4.66",
+  "jsonschema >= 4.21",
+  "markdown >= 3.5",
+  "protobuf >= 4.25",
+  "huggingface-hub >= 0.22.0",
+  "pyyaml >= 6.0",
+  "tenacity >= 8.2",
+  "rich >= 13.7"
+]
+
+[project.optional-dependencies]
+dev = [
+  "black",
+  "ruff",
+  "mypy",
+  "pytest",
+  "pytest-cov",
+  "pre-commit"
+]
+docs = [
+  "mkdocs",
+  "mkdocs-material",
+  "mkdocstrings[python]",
+  "markdown-exec"
+]
+
+[project.urls]
+Homepage = "https://github.com/YOUR_ORG/lit2vec"
+Repository = "https://github.com/YOUR_ORG/lit2vec"
+Dataset = "https://doi.org/10.5281/zenodo.XXXXXXX"
+Documentation = "https://YOUR_ORG.github.io/lit2vec"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.black]
+line-length = 100
+target-version = ["py310"]
+
+[tool.ruff]
+line-length = 100
+select = ["E", "F", "I", "B"]
+ignore = ["E203", "E501"]
+exclude = ["notebooks"]
+
+[tool.mypy]
+python_version = "3.10"
+ignore_missing_imports = true
+disallow_untyped_defs = false
+strict_optional = true
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "--cov=lit2vec --cov-report=term-missing"
+testpaths = ["tests"]

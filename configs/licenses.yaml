@@ -1,0 +1,70 @@
+# SPDX-style license mapping for CC-licensed OA content
+# Used for filtering and final licensing resolution
+
+licenses:
+  CC0:
+    spdx: "CC0-1.0"
+    url: "https://creativecommons.org/publicdomain/zero/1.0/"
+    allows_derivatives: true
+    allows_commercial_use: true
+
+  CC-BY:
+    spdx: "CC-BY-4.0"
+    url: "https://creativecommons.org/licenses/by/4.0/"
+    allows_derivatives: true
+    allows_commercial_use: true
+
+  CC-BY-SA:
+    spdx: "CC-BY-SA-4.0"
+    url: "https://creativecommons.org/licenses/by-sa/4.0/"
+    allows_derivatives: true
+    allows_commercial_use: true
+
+  CC-BY-NC:
+    spdx: "CC-BY-NC-4.0"
+    url: "https://creativecommons.org/licenses/by-nc/4.0/"
+    allows_derivatives: true
+    allows_commercial_use: false
+
+  CC-BY-NC-SA:
+    spdx: "CC-BY-NC-SA-4.0"
+    url: "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+    allows_derivatives: true
+    allows_commercial_use: false
+
+  CC-BY-ND:
+    spdx: "CC-BY-ND-4.0"
+    url: "https://creativecommons.org/licenses/by-nd/4.0/"
+    allows_derivatives: false
+    allows_commercial_use: true
+
+  CC-BY-NC-ND:
+    spdx: "CC-BY-NC-ND-4.0"
+    url: "https://creativecommons.org/licenses/by-nc-nd/4.0/"
+    allows_derivatives: false
+    allows_commercial_use: false
+
+  ODC-BY:
+    spdx: "ODC-By-1.0"
+    url: "https://opendatacommons.org/licenses/by/1-0/"
+    allows_derivatives: true
+    allows_commercial_use: true
+
+  OTHER:
+    spdx: "LicenseRef-Other"
+    url: "https://example.org/custom-license"
+    allows_derivatives: false
+    allows_commercial_use: false
+
+# Optional aliases — normalize different spellings/casings from upstream
+aliases:
+  "cc-by": "CC-BY"
+  "cc-by-4.0": "CC-BY"
+  "cc-by-sa": "CC-BY-SA"
+  "cc-by-nc": "CC-BY-NC"
+  "cc-by-nc-sa": "CC-BY-NC-SA"
+  "cc-by-nd": "CC-BY-ND"
+  "cc-by-nc-nd": "CC-BY-NC-ND"
+  "odc-by": "ODC-BY"
+  "other": "OTHER"
+  "unknown": "OTHER"

@@ -1,0 +1,73 @@
+name: Publish Release
+
+on:
+  push:
+    tags:
+      - "v*.*.*"   # Only run on version tags like v1.0.0
+
+permissions:
+  contents: write    # needed for release upload
+  id-token: write    # for OpenID Connect auth if using cloud
+
+jobs:
+  build-release:
+    name: Build & Validate Dataset
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout repo
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Set up Miniconda
+      - name: Set up Miniconda
+        uses: conda-incubator/setup-miniconda@v3
+        with:
+          environment-file: environment.yml
+          activate-environment: lit2vec
+          auto-activate-base: false
+
+      # Download NLP models
+      - name: Install NLTK + spaCy models
+        shell: bash -l {0}
+        run: |
+          python -m nltk.downloader punkt
+          python -m spacy download en_core_web_sm
+
+      # Build pipeline
+      - name: Run pipeline
+        shell: bash -l {0}
+        run: |
+          make run
+
+      # Schema validation
+      - name: Validate schema
+        shell: bash -l {0}
+        run: |
+          make schema
+
+      # License audit
+      - name: Audit licenses
+        shell: bash -l {0}
+        run: |
+          make license-audit
+
+      # Package dataset
+      - name: Package dataset
+        shell: bash -l {0}
+        run: |
+          make package
+
+      # Upload artifacts to GitHub Release
+      - name: Upload Release Assets
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            output/release-v*/manifest.json
+            output/release-v*/checksums.txt
+            output/release-v*/schema.json
+            output/release-v*/stats/*
+            output/release-v*/data/*.zst
+            output/release-v*/embeddings/*.fbin
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
