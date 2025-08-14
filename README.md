@@ -111,6 +111,16 @@ print(ds[0]["paragraphs"][:3])
 
 ---
 
+### Simplified for Reproducibility
+
+The released code is a cleaned, modular version of our production pipeline.
+It mirrors the full logic (e.g., license filtering, chunking, embedding) using a small demo subset (5 papers),
+and is designed for transparency, reproducibility, and ease of inspection.
+
+The full-scale version used MongoDB filtering and parallel embedding; logic is identical.
+
+---
+
 ## 📜 Licensing
 
 * **Corpus:** All texts are CC-licensed and allow derivative use (no CC-ND content included)
