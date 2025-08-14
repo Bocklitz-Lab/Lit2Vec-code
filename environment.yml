@@ -4,61 +4,36 @@ channels:
   - defaults
 
 dependencies:
-  # Core Python
   - python=3.10
+  - pip
+  - pip:
+      - torch==2.2.2+cu118  # or adapt to your CUDA version
+      - torchvision==0.17.2+cu118
+      - torchaudio==2.2.2+cu118
+      - --extra-index-url https://download.pytorch.org/whl/cu118
 
-  # NLP + tokenization
-  - nltk
-  - spacy
-  - huggingface_hub
-  - transformers
-  - sentence-transformers
-  - datasets
-  - accelerate
-  - tokenizers
-  - sacremoses
-  - tqdm
+      # Core NLP + embeddings
+      - transformers==4.41.2
+      - sentence-transformers==2.7.0
+      - accelerate==0.31.0
 
-  # Vector handling
-  - faiss-cpu             # Or faiss-gpu if needed
-  - numpy
-  - pandas
-  - scipy
-  - scikit-learn
+      # Tokenizer support
+      - tokenizers==0.19.1
 
-  # Compression & storage
-  - zstandard
-  - pyarrow
-  - orjson
-  - rapidjson
+      # Data processing
+      - tqdm==4.66.4
+      - numpy==1.26.4
+      - zstandard==0.22.0
+      - pynvml==11.5.0
+      - datasets==2.21.0
+      - scikit-learn==1.5.0
 
-  # Data validation
-  - jsonschema
-  - pydantic
+      # Optional utilities
+      - rich==13.7.1
+      - pandas==2.2.2
+      - jsonlines==4.0.0
+      - orjson==3.10.3
 
-  # Plotting (for figures & validation)
-  - matplotlib
-  - seaborn
-
-  # Web / scraping / I/O
-  - requests
-  - lxml
-  - beautifulsoup4
-  - aiohttp
-  - tqdm
-
-  # Dev & testing
-  - pytest
-  - flake8
-  - mypy
-  - pre-commit
-
-  # Optional: summarization / model training
-  - pytorch
-  - torchvision
-  - torchaudio
-  - pytorch-lightning
-
-  # Optional: Jupyter
-  - jupyterlab
-  - ipywidgets
+      # Linting / typing (optional for dev)
+      - mypy
+      - ruff

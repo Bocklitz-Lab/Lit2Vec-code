@@ -1,30 +1,46 @@
-# Base image with conda and Python 3.10
-FROM continuumio/miniconda3:latest
+# Base image: PyTorch with CUDA 11.8 and cuDNN, Python 3.10
+FROM pytorch/pytorch:2.2.2-cuda11.8-cudnn8-runtime
 
-# Metadata
-LABEL maintainer="Your Name <your@email.com>"
-LABEL description="Lit2Vec: Open Chemistry Corpus with Paragraph Embeddings"
+# System setup
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    git \
+    curl \
+    wget \
+    vim \
+    unzip \
+    ca-certificates \
+    libgl1 \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
-# Set working directory
-WORKDIR /app
+# Optional: Install Miniconda (not preinstalled in PyTorch image)
+ENV CONDA_DIR=/opt/conda
+RUN curl -sLo miniconda.sh https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh && \
+    bash miniconda.sh -b -p $CONDA_DIR && \
+    rm miniconda.sh && \
+    $CONDA_DIR/bin/conda clean -afy
 
-# Copy env file first for layer caching
-COPY environment.yml .
+ENV PATH=$CONDA_DIR/bin:$PATH
 
-# Create environment
-RUN conda env create -f environment.yml && conda clean -a
+# Copy environment.yml into container
+COPY environment.yml /tmp/environment.yml
 
-# Activate the environment
-SHELL ["conda", "run", "-n", "lit2vec", "/bin/bash", "-c"]
+# Create Conda environment
+RUN conda env create -f /tmp/environment.yml && conda clean -afy
 
-# Install any pip-only packages (if needed)
-# RUN pip install some_package_not_in_conda
+# Set default shell to bash with Conda activated
+SHELL ["/bin/bash", "-c"]
+RUN echo "conda activate lit2vec" >> ~/.bashrc
+ENV PATH /opt/conda/envs/lit2vec/bin:$PATH
+ENV CONDA_DEFAULT_ENV=lit2vec
 
-# Copy source code last (after env to preserve cache)
-COPY . .
+# Set working directory inside the container
+WORKDIR /workspace
 
-# Expose Jupyter and default run command
-EXPOSE 8888
+# Copy your project files (adjust if needed)
+COPY . /workspace
 
-# Entrypoint: Jupyter Lab (or override in docker-compose)
-CMD ["conda", "run", "--no-capture-output", "-n", "lit2vec", "jupyter", "lab", "--ip=0.0.0.0", "--allow-root", "--no-browser"]
+# Default command (optional)
+CMD ["python"]
