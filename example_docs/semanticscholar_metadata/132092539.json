@@ -1,0 +1,70 @@
+{
+    "_id": "67604632a0cb082315f7f46f",
+    "corpusid": 132092539,
+    "externalids": {
+        "ACL": null,
+        "DBLP": null,
+        "ArXiv": null,
+        "MAG": "2932795118",
+        "CorpusId": "132092539",
+        "PubMed": null,
+        "DOI": "10.1002/ADSC.201900205",
+        "PubMedCentral": null
+    },
+    "url": "https://www.semanticscholar.org/paper/4fac3cbb81098ff8abcee4a0785860324d60bee3",
+    "title": "CH\u2010\u03c0 Interactions Promote the Conversion of Hydroxypyruvate in a Class II Pyruvate Aldolase",
+    "authors": [
+        {
+            "authorId": "24898705",
+            "name": "S. Marsden"
+        },
+        {
+            "authorId": "13369822",
+            "name": "L. Mestrom"
+        },
+        {
+            "authorId": "5352387",
+            "name": "I. Bento"
+        },
+        {
+            "authorId": "3627893",
+            "name": "P. Hagedoorn"
+        },
+        {
+            "authorId": "48334616",
+            "name": "D. G. McMillan"
+        },
+        {
+            "authorId": "3599716",
+            "name": "U. Hanefeld"
+        }
+    ],
+    "venue": "Advanced Synthesis and Catalysis",
+    "publicationvenueid": "04d8f4c1-4887-42e1-88d4-f51bbf7cfe80",
+    "year": 2019,
+    "referencecount": 61,
+    "citationcount": 10,
+    "influentialcitationcount": 0,
+    "isopenaccess": true,
+    "s2fieldsofstudy": [
+        {
+            "category": "Chemistry",
+            "source": "s2-fos-model"
+        },
+        {
+            "category": "Biology",
+            "source": "s2-fos-model"
+        },
+        {
+            "category": "Chemistry",
+            "source": "external"
+        }
+    ],
+    "publicationtypes": null,
+    "publicationdate": "2019-06-06",
+    "journal": {
+        "name": "Advanced Synthesis & Catalysis",
+        "pages": null,
+        "volume": null
+    }
+}

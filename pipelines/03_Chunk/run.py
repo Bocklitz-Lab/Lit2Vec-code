@@ -2,7 +2,7 @@
 
 import argparse
 import yaml
-from src import JSONChunkProcessor  # Adjust this import if needed
+from src.JSONChunkProcessor import JSONChunkProcessor  # Adjust this import if needed
 
 def main():
     parser = argparse.ArgumentParser(description="Run JSONChunkProcessor with config file.")

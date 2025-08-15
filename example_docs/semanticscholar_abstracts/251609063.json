@@ -1,0 +1,17 @@
+{
+    "_id": "6761c8af003298dc99135796",
+    "corpusid": 251609063,
+    "openaccessinfo": {
+        "externalids": {
+            "MAG": null,
+            "ACL": null,
+            "DOI": "10.3390/ijms23169128",
+            "PubMedCentral": "9409267",
+            "ArXiv": null
+        },
+        "license": "CCBY",
+        "url": "https://www.mdpi.com/1422-0067/23/16/9128/pdf?version=1660547600",
+        "status": "GOLD"
+    },
+    "abstract": "Olive pomace extract (OPE) was investigated as a potential surface modifier for the development of the green synthesis process of selenium nanoparticles (SeNPs). In order to evaluate them as potential nutraceuticals, the obtained nanosystems were characterized in terms of size distribution, shape, zeta potential, stability in different media, gastrointestinal bioaccessibility and biocompatibility. Systems with a unimodal size distribution of spherical particles were obtained, with average diameters ranging from 53.3 nm to 181.7 nm, depending on the type of coating agent used and the presence of OPE in the reaction mixture. The nanosystems were significantly affected by the gastrointestinal conditions. Bioaccessibility ranged from 33.57% to 56.93% and it was significantly increased by functionalization of with OPE. Biocompatibility was investigated in the HepG2 and Caco2 cell models, proving that they had significantly lower toxicity in comparison to sodium selenite. Significant differences were observed in cellular responses depending on the type of cells used, indicating differences in the mechanisms of toxicity induced by SeNPs. The obtained results provide new insight into the possibilities for the utilization of valuable food-waste extracts in the sustainable development of nanonutraceuticals."
+}

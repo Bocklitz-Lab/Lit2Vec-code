@@ -1,7 +1,7 @@
 import argparse
 import yaml
-from src.embedding_processor import EmbeddingProcessor
-from src.abstract_embedding_processor import AbstractEmbeddingProcessor
+from src.EmbeddingProcessor import EmbeddingProcessor
+from src.AbstractEmbeddingProcessor import AbstractEmbeddingProcessor
 
 def main():
     parser = argparse.ArgumentParser(description="Run the selected embedding processor.")

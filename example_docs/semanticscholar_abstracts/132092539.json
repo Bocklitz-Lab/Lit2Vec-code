@@ -1,0 +1,17 @@
+{
+    "_id": "6761947d003298dc9995e199",
+    "corpusid": 132092539,
+    "openaccessinfo": {
+        "externalids": {
+            "MAG": "2932795118",
+            "ACL": null,
+            "DOI": "10.1002/ADSC.201900205",
+            "PubMedCentral": null,
+            "ArXiv": null
+        },
+        "license": null,
+        "url": null,
+        "status": null
+    },
+    "abstract": "The class II hydroxy ketoacid aldolase A5VH82 from Sphingomonas wittichii RW1 (SwHKA) accepts hydroxypyruvate as nucleophilic donor substrate, giving access to synthetically challenging 3,4-dihydroxy-α-ketoacids. The crystal structure of holo-SwHKA in complex with hydroxypyruvate revealed CH-π interactions between the C−H bonds at C3 of hydroxypyruvate and a phenylalanine residue at position 210, which in this case occupies the position of a conserved leucine residue. Mutagenesis to tyrosine further increased the electron density of the interacting aromatic system and effected a rate enhancement by twofold. While the leucine variant efficiently catalyses the enolisation of hydroxypyruvate as the first step in the aldol reaction, the enol intermediate then becomes trapped in a disfavoured configuration that considerably hinders subsequent C−C bond formation. In SwHKA, micromolar concentrations of inorganic phosphate increase the catalytic rate constant of enolisation by two orders of magnitude. This rate enhancement was now shown to be functionally conserved across the structurally distinct (α/β)8 barrel and αββα sandwich folds of two pyruvate aldolases. Characterisation of the manganese (II) cofactor by electron paramagnetic resonance excluded ionic interactions between the metal centre and phosphate. Instead, histidine 44 was shown to be primarily responsible for the binding of phosphate in the micromolar range and the observed rate enhancement in SwHKA. (Figure presented.)."
+}

@@ -1,0 +1,37 @@
+tqdm==4.66.4
+numpy==1.26.4
+zstandard==0.22.0
+pynvml==11.5.0
+scikit-learn==1.5.0
+pandas==2.2.2
+nltk===3.8.1
+spacy
+transformers==4.41.2
+sentence-transformers==2.7.0
+accelerate==0.31.0
+tokenizers==0.19.1
+datasets==2.21.0
+rich==13.7.1
+jsonlines==4.0.0
+orjson==3.10.3
+mypy
+ruff
+
+# GPU: PyTorch 2.2.2 + CUDA 11.8 wheels
+torch==2.2.2+cu118
+torchvision==0.17.2+cu118
+torchaudio==2.2.2+cu118
+--extra-index-url https://download.pytorch.org/whl/cu118
+
+fuzzywuzzy[speedup]==0.18.0
+chromadb<0.5
+tiktoken==0.7.0
+python-Levenshtein>=0.12.0
+jsonschema==4.17.0
+
+langdetect==1.0.9
+rouge-score==0.1.2
+python-dateutil==2.9.0
+
+pymongo==4.6.0
+bert-score==0.3.13

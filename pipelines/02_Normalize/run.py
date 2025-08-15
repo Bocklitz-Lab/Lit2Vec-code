@@ -1,6 +1,6 @@
 import argparse
 import yaml
-from src import PaperProcessor  # Ensure this path is correct
+from src.PaperProcessor import PaperProcessor  # Ensure this path is correct
 
 def main():
     parser = argparse.ArgumentParser(description="Run the PaperProcessor with a config file.")

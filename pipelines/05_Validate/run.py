@@ -2,7 +2,7 @@
 
 import argparse
 import yaml
-from src import ValidatorPipeline  # <- This will come from the refactored main script
+from src.technical_validation import ValidatorPipeline  # <- This will come from the refactored main script
 
 def main():
     parser = argparse.ArgumentParser(description="Run the lit2vec validator pipeline.")

@@ -20,7 +20,7 @@ from typing import (
     TypeVar,
     Union,
 )
-from base_chunker import BaseChunker
+from src.base_chunker import BaseChunker
 
 
 from attr import dataclass

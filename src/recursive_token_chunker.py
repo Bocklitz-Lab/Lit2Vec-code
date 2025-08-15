@@ -4,9 +4,9 @@
 # License: MIT License
 
 from typing import Any, List, Optional
-from base_chunker import BaseChunker
-from utils import Language
-from fixed_token_chunker import TextSplitter
+from src.base_chunker import BaseChunker
+from src.utils import Language
+from src.fixed_token_chunker import TextSplitter
 import re
 from transformers import AutoTokenizer
 

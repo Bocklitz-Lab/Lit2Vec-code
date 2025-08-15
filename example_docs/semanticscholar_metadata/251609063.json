@@ -1,0 +1,80 @@
+{
+    "_id": "67604de2a0cb0823155b4ec3",
+    "corpusid": 251609063,
+    "externalids": {
+        "ACL": null,
+        "DBLP": null,
+        "ArXiv": null,
+        "MAG": null,
+        "CorpusId": "251609063",
+        "PubMed": "36012394",
+        "DOI": "10.3390/ijms23169128",
+        "PubMedCentral": "9409267"
+    },
+    "url": "https://www.semanticscholar.org/paper/31084ba32d460c4e3728a32a4de32f57ba08a7bb",
+    "title": "Utilization of Olive Pomace in Green Synthesis of Selenium Nanoparticles: Physico-Chemical Characterization, Bioaccessibility and Biocompatibility",
+    "authors": [
+        {
+            "authorId": "1484664991",
+            "name": "E. Gali\u0107"
+        },
+        {
+            "authorId": "89786641",
+            "name": "K. Radi\u0107"
+        },
+        {
+            "authorId": "2096264538",
+            "name": "Nikolina Golub"
+        },
+        {
+            "authorId": "15012795",
+            "name": "D. Vitali \u010cepo"
+        },
+        {
+            "authorId": "2095257537",
+            "name": "Nikolina Kal\u010dec"
+        },
+        {
+            "authorId": "2181716531",
+            "name": "Ena Vr\u010dek"
+        },
+        {
+            "authorId": "11217161",
+            "name": "T. Vinkovi\u0107"
+        }
+    ],
+    "venue": "International Journal of Molecular Sciences",
+    "publicationvenueid": "8506a01a-40b8-4e6f-bbb8-ce2492139c15",
+    "year": 2022,
+    "referencecount": 66,
+    "citationcount": 11,
+    "influentialcitationcount": 0,
+    "isopenaccess": false,
+    "s2fieldsofstudy": [
+        {
+            "category": "Environmental Science",
+            "source": "s2-fos-model"
+        },
+        {
+            "category": "Materials Science",
+            "source": "s2-fos-model"
+        },
+        {
+            "category": "Chemistry",
+            "source": "s2-fos-model"
+        },
+        {
+            "category": "Medicine",
+            "source": "external"
+        }
+    ],
+    "publicationtypes": [
+        "JournalArticle"
+    ],
+    "publicationdate": "2022-08-01",
+    "journal": {
+        "name": "International Journal of Molecular Sciences",
+        "pages": null,
+        "volume": "23"
+    }
+}

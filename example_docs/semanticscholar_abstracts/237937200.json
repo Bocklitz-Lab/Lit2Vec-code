@@ -1,0 +1,17 @@
+{
+    "_id": "6761b13b003298dc99da70d2",
+    "corpusid": 237937200,
+    "openaccessinfo": {
+        "externalids": {
+            "MAG": null,
+            "ACL": null,
+            "DOI": "10.3390/ijms221810124",
+            "PubMedCentral": "8464956",
+            "ArXiv": null
+        },
+        "license": "CCBY",
+        "url": "https://www.mdpi.com/1422-0067/22/18/10124/pdf?version=1632307763",
+        "status": "GOLD"
+    },
+    "abstract": "Pharmacological allosteric agonists (calcimimetics) of the extracellular calcium-sensing receptor (CaSR) have substantial gastro-intestinal side effects and induce the expression of inflammatory markers in colon cancer cells. Here, we compared the effects of both CaSR-specific (R enantiomers) and -unspecific (S enantiomers) enantiomers of a calcimimetic (NPS 568) and a calcilytic (allosteric CaSR antagonists; NPS 2143) to prove that these effects are indeed mediated via the CaSR, rather than via off-target effects, e.g., on β-adrenoceptors or calcium channels, of these drugs. The unspecific S enantiomer of NPS 2143 and NPS S-2143 was prepared using synthetic chemistry and characterized using crystallography. NPS S-2143 was then tested in HEK-293 cells stably transfected with the human CaSR (HEK-CaSR), where it did not inhibit CaSR-mediated intracellular Ca2+ signals, as expected. HT29 colon cancer cells transfected with the CaSR were treated with both enantiomers of NPS 568 and NPS 2143 alone or in combination, and the expression of CaSR and the pro-inflammatory cytokine interleukin 8 (IL-8) was measured by RT-qPCR and ELISA. Only the CaSR-selective enantiomers of the calcimimetic NPS 568 and NPS 2143 were able to modulate CaSR and IL-8 expression. We proved that pro-inflammatory effects in colon cancer cells are indeed mediated through CaSR activation. The non-CaSR selective enantiomer NPS S-2143 will be a valuable tool for investigations in CaSR-mediated processes."
+}

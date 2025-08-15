@@ -3,75 +3,91 @@ version: "1.0.0"
 date_created: "2025-08-14"
 created_by: "Lit2Vec Pipeline"
 
-# --- Paths ---
-raw_data_path: "data/raw/"
-normalized_data_path: "data/normalized/"
-chunks_path: "data/chunks/"
-embeddings_path: "data/embeddings/"
-output_path: "data/output/"
-log_path: "logs/"
-license_map_path: "configs/licenses.yaml"
-schema_path: "schema/record.schema.json"
 
-# --- Licensing rules ---
-license_policy:
-  allow_nc: true         # allow CC-BY-NC, CC-BY-NC-SA
-  allow_nd: false        # prohibit CC-BY-ND and CC-BY-NC-ND
-  fallback_behavior: exclude  # what to do with unknown licenses: exclude, warn, or include
+# --- Pipeline configuration ---
+METADATA_PROCESSOR:
+  base_input_folder: "example_docs/"
+  output_folder: "results/pipeline_output/"
 
-# --- Tokenization & chunking ---
-tokenizer:
-  name: "intfloat/e5-base-v2"
-  revision: "main"       # or a specific commit hash
-  max_tokens: 200
-  min_tokens: 100
-  overlap_tokens: 20
-  truncate_strategy: "right"  # or "longest_first"
-  chunk_prefix: "passage: "   # added before each paragraph when embedding
+  input_folders:
+    metadata: "semanticscholar_metadata"
+    abstracts: "semanticscholar_abstracts"
+    licenses: "licences"
+  
+  license_sources:
+    - "unpaywall"
+    - "crossref"
+    - "openalex"
 
-# --- Embedding model ---
-embedding:
-  model_name: "intfloat/e5-base-v2"
-  revision: "main"
-  pooling: "mean"            # mean/max/cls token
-  normalize: true
-  device: "cuda"             # "cpu" or "cuda"
+
+JSON2MD:
+  input_dir: example_docs/semanticscholar_s2orc
+  output_dir: results/pipeline_output/
+
+  common_headers:
+    - abstract
+    - introduction
+    - methods
+    - experimental methods
+    - materials and methods
+    - results
+    - results and discussion
+    - discussion
+    - conclusion
+    - conclusions
+    - references
+    - supporting information
+
+  min_words_per_section: 10
+
+
+JSONChunkProcessor:
+  input_folder: "results/pipeline_output/"
+  output_folder: "results/pipeline_output/"
+  chunk_size: 200
+  chunk_overlap: 20
+  token_threshold: 100
+  tokenizer_name: "intfloat/e5-large"
+
+
+
+PARAGRAPH_EMBEDDINGS:
+  input_folder: results/pipeline_output/
+  output_folder: results/pipeline_output/
+  min_file_size_kb: 5
+  model_name: intfloat/e5-large-v2
   batch_size: 32
-  precision: "fp32"          # or "fp16"
+  normalize_embeddings: true
 
-# --- Pseudo-labeling (optional classification, TL;DR) ---
-classifier:
-  model_name: "lit2vec-chemistry-mlp"
-  use: true
-  thresholds:
-    confidence_min: 0.5
-    confidence_max: 1.0
 
-summarizer:
-  model_name: "lit2vec-tldr-bart"
-  use: true
-  max_input_tokens: 512
-  max_output_tokens: 64
 
-# --- Randomness & reproducibility ---
-seed: 42
-deterministic: true
+ABSTRACT_EMBEDDINGS:
+  input_folder: results/pipeline_output/
+  output_folder: results/pipeline_output/
+  min_file_size_kb: 1
+  model_name: intfloat/e5-large-v2
+  normalize_embeddings: true
 
-# --- Output sharding ---
-sharding:
-  num_shards: 100
-  shard_strategy: "hash_id"
 
-# --- Validation thresholds ---
-validation:
-  embedding_cosine_tolerance: 1e-6
-  max_missing_fields: 0
-  schema_validation: true
-  license_check: true
 
-# --- Deployment ---
-upload:
-  huggingface_dataset_repo: "your-org/lit2vec"
-  hf_token_env_var: "HF_TOKEN"
-  zenodo_doi: "10.5281/zenodo.XXXXXXX"
-  concept_doi: "10.5281/zenodo.YYYYYYY"
+VALIDATOR_CONFIG:
+  input_folder: "results/pipeline_output/"
+  output_folder: "results/validation/"
+  chunk_size: 1000
+
+  hash_exclude_keys:
+    - abstract_embedding
+    - corpus_id
+    - embeddings
+    - schema_version
+    - validation_info
+
+  summary_evaluator:
+    model_type: "bert-base-uncased"
+    backend: "evaluate"
+
+  schema_validator:
+    max_errors: 50
+
+  validator_version: "lit2vec-qc@0.4.0"
+  schema_version: "1.0"

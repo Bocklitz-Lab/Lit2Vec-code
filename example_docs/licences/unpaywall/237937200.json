@@ -1,0 +1,219 @@
+{
+  "doi": "10.3390/ijms221810124",
+  "doi_url": "https://doi.org/10.3390/ijms221810124",
+  "title": "Stereo-Specific Modulation of the Extracellular Calcium-Sensing Receptor in Colon Cancer Cells",
+  "genre": "journal-article",
+  "is_paratext": false,
+  "published_date": "2021-09-19",
+  "year": 2021,
+  "journal_name": "International Journal of Molecular Sciences",
+  "journal_issns": "1422-0067,1661-6596",
+  "journal_issn_l": "1422-0067",
+  "journal_is_oa": false,
+  "journal_is_in_doaj": false,
+  "publisher": "MDPI AG",
+  "is_oa": true,
+  "oa_status": "hybrid",
+  "has_repository_copy": true,
+  "best_oa_location": {
+    "url": "https://www.mdpi.com/1422-0067/22/18/10124/pdf?version=1632307763",
+    "url_for_pdf": "https://www.mdpi.com/1422-0067/22/18/10124/pdf?version=1632307763",
+    "url_for_landing_page": "https://doi.org/10.3390/ijms221810124",
+    "evidence": "deprecated",
+    "license": "cc-by",
+    "version": "publishedVersion",
+    "host_type": "publisher",
+    "is_best": true,
+    "pmh_id": null,
+    "endpoint_id": null,
+    "repository_institution": null,
+    "oa_date": "2021-09-19",
+    "updated": "deprecated"
+  },
+  "first_oa_location": {
+    "url": "https://www.mdpi.com/1422-0067/22/18/10124/pdf?version=1632307763",
+    "url_for_pdf": "https://www.mdpi.com/1422-0067/22/18/10124/pdf?version=1632307763",
+    "url_for_landing_page": "https://doi.org/10.3390/ijms221810124",
+    "evidence": "deprecated",
+    "license": "cc-by",
+    "version": "publishedVersion",
+    "host_type": "publisher",
+    "is_best": true,
+    "pmh_id": null,
+    "endpoint_id": null,
+    "repository_institution": null,
+    "oa_date": "2021-09-19",
+    "updated": "deprecated"
+  },
+  "oa_locations": [
+    {
+      "url": "https://www.mdpi.com/1422-0067/22/18/10124/pdf?version=1632307763",
+      "url_for_pdf": "https://www.mdpi.com/1422-0067/22/18/10124/pdf?version=1632307763",
+      "url_for_landing_page": "https://doi.org/10.3390/ijms221810124",
+      "evidence": "deprecated",
+      "license": "cc-by",
+      "version": "publishedVersion",
+      "host_type": "publisher",
+      "is_best": true,
+      "pmh_id": null,
+      "endpoint_id": null,
+      "repository_institution": null,
+      "oa_date": "2021-09-19",
+      "updated": "deprecated"
+    },
+    {
+      "url": "http://europepmc.org/pmc/articles/PMC8464956",
+      "url_for_pdf": null,
+      "url_for_landing_page": "http://europepmc.org/pmc/articles/PMC8464956",
+      "evidence": "deprecated",
+      "license": "other-oa",
+      "version": null,
+      "host_type": "repository",
+      "is_best": false,
+      "pmh_id": "oai:europepmc.org:7353541",
+      "endpoint_id": "b5e840539009389b1a6",
+      "repository_institution": "PubMed Central - Europe PMC",
+      "oa_date": "2021-09-19",
+      "updated": "deprecated"
+    },
+    {
+      "url": "https://cronfa.swan.ac.uk/Record/cronfa58160",
+      "url_for_pdf": null,
+      "url_for_landing_page": "https://cronfa.swan.ac.uk/Record/cronfa58160",
+      "evidence": "deprecated",
+      "license": "cc-by",
+      "version": "submittedVersion",
+      "host_type": "repository",
+      "is_best": false,
+      "pmh_id": "oai:cronfa.swan.ac.uk:cronfa58160",
+      "endpoint_id": "0e022feedbb64b085aa",
+      "repository_institution": "Swansea University - Cronfa",
+      "oa_date": "2021-09-19",
+      "updated": "deprecated"
+    },
+    {
+      "url": "https://dx.doi.org/10.3390/ijms221810124",
+      "url_for_pdf": null,
+      "url_for_landing_page": "https://dx.doi.org/10.3390/ijms221810124",
+      "evidence": "deprecated",
+      "license": "cc-by",
+      "version": "submittedVersion",
+      "host_type": "repository",
+      "is_best": false,
+      "pmh_id": "oai:mdpi.com:/1422-0067/22/18/10124/",
+      "endpoint_id": "ee112f0a1ed552ed9a6",
+      "repository_institution": "MDPI AG - MDPI",
+      "oa_date": "2021-09-19",
+      "updated": "deprecated"
+    },
+    {
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/8464956",
+      "url_for_pdf": null,
+      "url_for_landing_page": "https://www.ncbi.nlm.nih.gov/pmc/articles/8464956",
+      "evidence": "deprecated",
+      "license": "other-oa",
+      "version": null,
+      "host_type": "repository",
+      "is_best": false,
+      "pmh_id": "oai:pubmedcentral.nih.gov:8464956",
+      "endpoint_id": "daaf77eacc58eec31bb",
+      "repository_institution": "PubMed Central",
+      "oa_date": "2021-09-19",
+      "updated": "deprecated"
+    }
+  ],
+  "oa_locations_embargoed": [],
+  "data_standard": 2,
+  "z_authors": [
+    {
+      "author_position": "first",
+      "raw_author_name": "Martin Schepelmann",
+      "is_corresponding": true,
+      "raw_affiliation_strings": [
+        "Center for Pathophysiology, Infectiology and Immunology, Institute for Pathophysiology and Allergy Research, Medical University of Vienna, Waehringer Guertel 18-20, 1090 Vienna, Austria"
+      ]
+    },
+    {
+      "author_position": "additional",
+      "raw_author_name": "Nadja Kupper",
+      "is_corresponding": false,
+      "raw_affiliation_strings": [
+        "Center for Pathophysiology, Infectiology and Immunology, Institute for Pathophysiology and Allergy Research, Medical University of Vienna, Waehringer Guertel 18-20, 1090 Vienna, Austria"
+      ]
+    },
+    {
+      "author_position": "additional",
+      "raw_author_name": "Marta Sladczyk",
+      "is_corresponding": false,
+      "raw_affiliation_strings": [
+        "Center for Pathophysiology, Infectiology and Immunology, Institute for Pathophysiology and Allergy Research, Medical University of Vienna, Waehringer Guertel 18-20, 1090 Vienna, Austria"
+      ]
+    },
+    {
+      "author_position": "additional",
+      "raw_author_name": "Bethan Mansfield",
+      "is_corresponding": false,
+      "raw_affiliation_strings": [
+        "Cardiff School of Biosciences, Cardiff University, Museum Avenue, Cardiff CF10 3AX, UK"
+      ]
+    },
+    {
+      "author_position": "additional",
+      "raw_author_name": "Teresa Manhardt",
+      "is_corresponding": false,
+      "raw_affiliation_strings": [
+        "Center for Pathophysiology, Infectiology and Immunology, Institute for Pathophysiology and Allergy Research, Medical University of Vienna, Waehringer Guertel 18-20, 1090 Vienna, Austria"
+      ]
+    },
+    {
+      "author_position": "additional",
+      "raw_author_name": "Karina Piatek",
+      "is_corresponding": false,
+      "raw_affiliation_strings": [
+        "Center for Pathophysiology, Infectiology and Immunology, Institute for Pathophysiology and Allergy Research, Medical University of Vienna, Waehringer Guertel 18-20, 1090 Vienna, Austria"
+      ]
+    },
+    {
+      "author_position": "additional",
+      "raw_author_name": "Luca Iamartino",
+      "is_corresponding": false,
+      "raw_affiliation_strings": [
+        "Center for Pathophysiology, Infectiology and Immunology, Institute for Pathophysiology and Allergy Research, Medical University of Vienna, Waehringer Guertel 18-20, 1090 Vienna, Austria",
+        "Department of Experimental and Clinical Biomedical Sciences, University of Florence, Viale Pieraccini 18, 50139 Florence, Italy"
+      ]
+    },
+    {
+      "author_position": "additional",
+      "raw_author_name": "Daniela Riccardi",
+      "is_corresponding": false,
+      "raw_affiliation_strings": [
+        "Cardiff School of Biosciences, Cardiff University, Museum Avenue, Cardiff CF10 3AX, UK"
+      ]
+    },
+    {
+      "author_position": "additional",
+      "raw_author_name": "Benson M. Kariuki",
+      "is_corresponding": false,
+      "raw_affiliation_strings": [
+        "School of Chemistry, Cardiff University, Main Building, Park Place, Cardiff CF10 3AT, UK"
+      ]
+    },
+    {
+      "author_position": "additional",
+      "raw_author_name": "Marcella Bassetto",
+      "is_corresponding": false,
+      "raw_affiliation_strings": [
+        "Department of Chemistry, Faculty of Science and Engineering, Swansea University, Singleton Park Campus, Swansea SA2 8PP, UK"
+      ]
+    },
+    {
+      "author_position": "last",
+      "raw_author_name": "Enikö Kallay",
+      "is_corresponding": false,
+      "raw_affiliation_strings": [
+        "Center for Pathophysiology, Infectiology and Immunology, Institute for Pathophysiology and Allergy Research, Medical University of Vienna, Waehringer Guertel 18-20, 1090 Vienna, Austria"
+      ]
+    }
+  ],
+  "updated": "2025-05-23T14:04:51Z"
+}

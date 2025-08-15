@@ -1,0 +1,96 @@
+{
+    "_id": "67604254a0cb082315b6a1e8",
+    "corpusid": 237937200,
+    "externalids": {
+        "ACL": null,
+        "DBLP": null,
+        "ArXiv": null,
+        "MAG": null,
+        "CorpusId": "237937200",
+        "PubMed": "34576291",
+        "DOI": "10.3390/ijms221810124",
+        "PubMedCentral": "8464956"
+    },
+    "url": "https://www.semanticscholar.org/paper/09e8a0c56f11f0a999693f6872761a30ef60cf61",
+    "title": "Stereo-Specific Modulation of the Extracellular Calcium-Sensing Receptor in Colon Cancer Cells",
+    "authors": [
+        {
+            "authorId": "8272360",
+            "name": "M. Schepelmann"
+        },
+        {
+            "authorId": "1379560393",
+            "name": "N. Kupper"
+        },
+        {
+            "authorId": "2129429052",
+            "name": "Marta Sladczyk"
+        },
+        {
+            "authorId": "88049969",
+            "name": "B. Mansfield"
+        },
+        {
+            "authorId": "2205896",
+            "name": "T. Manhardt"
+        },
+        {
+            "authorId": "2129440635",
+            "name": "Karina Piatek"
+        },
+        {
+            "authorId": "80777296",
+            "name": "L. Iamartino"
+        },
+        {
+            "authorId": "144027929",
+            "name": "D. Riccardi"
+        },
+        {
+            "authorId": "4219179",
+            "name": "B. Kariuki"
+        },
+        {
+            "authorId": "47265133",
+            "name": "Marcella Bassetto"
+        },
+        {
+            "authorId": "4793961",
+            "name": "E. Kallay"
+        }
+    ],
+    "venue": "International Journal of Molecular Sciences",
+    "publicationvenueid": "8506a01a-40b8-4e6f-bbb8-ce2492139c15",
+    "year": 2021,
+    "referencecount": 39,
+    "citationcount": 10,
+    "influentialcitationcount": 1,
+    "isopenaccess": false,
+    "s2fieldsofstudy": [
+        {
+            "category": "Medicine",
+            "source": "s2-fos-model"
+        },
+        {
+            "category": "Chemistry",
+            "source": "s2-fos-model"
+        },
+        {
+            "category": "Biology",
+            "source": "s2-fos-model"
+        },
+        {
+            "category": "Medicine",
+            "source": "external"
+        }
+    ],
+    "publicationtypes": [
+        "JournalArticle"
+    ],
+    "publicationdate": "2021-09-01",
+    "journal": {
+        "name": "International Journal of Molecular Sciences",
+        "pages": null,
+        "volume": "22"
+    }
+}

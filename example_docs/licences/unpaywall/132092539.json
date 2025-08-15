@@ -1,0 +1,149 @@
+{
+  "doi": "10.1002/adsc.201900205",
+  "doi_url": "https://doi.org/10.1002/adsc.201900205",
+  "title": "CH‐π Interactions Promote the Conversion of Hydroxypyruvate in a Class II Pyruvate Aldolase",
+  "genre": "journal-article",
+  "is_paratext": false,
+  "published_date": "2019-04-05",
+  "year": 2019,
+  "journal_name": "Advanced Synthesis & Catalysis",
+  "journal_issns": "1615-4150,1615-4169",
+  "journal_issn_l": "1615-4150",
+  "journal_is_oa": false,
+  "journal_is_in_doaj": false,
+  "publisher": "Wiley",
+  "is_oa": true,
+  "oa_status": "hybrid",
+  "has_repository_copy": true,
+  "best_oa_location": {
+    "url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/adsc.201900205",
+    "url_for_pdf": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/adsc.201900205",
+    "url_for_landing_page": "https://doi.org/10.1002/adsc.201900205",
+    "evidence": "deprecated",
+    "license": "cc-by",
+    "version": "publishedVersion",
+    "host_type": "publisher",
+    "is_best": true,
+    "pmh_id": null,
+    "endpoint_id": null,
+    "repository_institution": null,
+    "oa_date": "2019-04-05",
+    "updated": "deprecated"
+  },
+  "first_oa_location": {
+    "url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/adsc.201900205",
+    "url_for_pdf": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/adsc.201900205",
+    "url_for_landing_page": "https://doi.org/10.1002/adsc.201900205",
+    "evidence": "deprecated",
+    "license": "cc-by",
+    "version": "publishedVersion",
+    "host_type": "publisher",
+    "is_best": true,
+    "pmh_id": null,
+    "endpoint_id": null,
+    "repository_institution": null,
+    "oa_date": "2019-04-05",
+    "updated": "deprecated"
+  },
+  "oa_locations": [
+    {
+      "url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/adsc.201900205",
+      "url_for_pdf": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/adsc.201900205",
+      "url_for_landing_page": "https://doi.org/10.1002/adsc.201900205",
+      "evidence": "deprecated",
+      "license": "cc-by",
+      "version": "publishedVersion",
+      "host_type": "publisher",
+      "is_best": true,
+      "pmh_id": null,
+      "endpoint_id": null,
+      "repository_institution": null,
+      "oa_date": "2019-04-05",
+      "updated": "deprecated"
+    },
+    {
+      "url": "http://bib-pubdb1.desy.de/record/425964",
+      "url_for_pdf": "http://bib-pubdb1.desy.de/record/425964",
+      "url_for_landing_page": "https://bib-pubdb1.desy.de/record/425964",
+      "evidence": "deprecated",
+      "license": "other-oa",
+      "version": "submittedVersion",
+      "host_type": "repository",
+      "is_best": false,
+      "pmh_id": "oai:bib-pubdb1.desy.de:425964",
+      "endpoint_id": "2ce5035dd8b17601a47",
+      "repository_institution": "PUBDB - DESY Publication Database",
+      "oa_date": "2019-04-05",
+      "updated": "deprecated"
+    },
+    {
+      "url": "http://resolver.tudelft.nl/uuid:9fd57df2-f83a-45e3-9775-aa53bf103634",
+      "url_for_pdf": null,
+      "url_for_landing_page": "http://resolver.tudelft.nl/uuid:9fd57df2-f83a-45e3-9775-aa53bf103634",
+      "evidence": "deprecated",
+      "license": "cc-by",
+      "version": "submittedVersion",
+      "host_type": "repository",
+      "is_best": false,
+      "pmh_id": "oai:tudelft.nl:uuid:9fd57df2-f83a-45e3-9775-aa53bf103634",
+      "endpoint_id": "91fd85e3b625cb8931a",
+      "repository_institution": "Delft University of Technology - Research Repository",
+      "oa_date": "2019-04-05",
+      "updated": "deprecated"
+    }
+  ],
+  "oa_locations_embargoed": [],
+  "data_standard": 2,
+  "z_authors": [
+    {
+      "author_position": "first",
+      "raw_author_name": "Stefan R. Marsden",
+      "is_corresponding": false,
+      "raw_affiliation_strings": [
+        "Biokatalyse, Afdeling Biotechnologie Technische Universiteit Delft  van der Maasweg 9 2629HZ Delft, The Netherlands",
+        "EMBL Hamburg  Notkestrasse 85 22607 Hamburg Germany"
+      ]
+    },
+    {
+      "author_position": "additional",
+      "raw_author_name": "Luuk Mestrom",
+      "is_corresponding": false,
+      "raw_affiliation_strings": [
+        "Biokatalyse, Afdeling Biotechnologie Technische Universiteit Delft  van der Maasweg 9 2629HZ Delft, The Netherlands"
+      ]
+    },
+    {
+      "author_position": "additional",
+      "raw_author_name": "Isabel Bento",
+      "is_corresponding": true,
+      "raw_affiliation_strings": [
+        "EMBL Hamburg  Notkestrasse 85 22607 Hamburg Germany"
+      ]
+    },
+    {
+      "author_position": "additional",
+      "raw_author_name": "Peter‐Leon Hagedoorn",
+      "is_corresponding": false,
+      "raw_affiliation_strings": [
+        "Biokatalyse, Afdeling Biotechnologie Technische Universiteit Delft  van der Maasweg 9 2629HZ Delft, The Netherlands"
+      ]
+    },
+    {
+      "author_position": "additional",
+      "raw_author_name": "Duncan G. G. McMillan",
+      "is_corresponding": false,
+      "raw_affiliation_strings": [
+        "Biokatalyse, Afdeling Biotechnologie Technische Universiteit Delft  van der Maasweg 9 2629HZ Delft, The Netherlands"
+      ]
+    },
+    {
+      "author_position": "last",
+      "raw_author_name": "Ulf Hanefeld",
+      "is_corresponding": true,
+      "raw_affiliation_strings": [
+        "Biokatalyse, Afdeling Biotechnologie Technische Universiteit Delft  van der Maasweg 9 2629HZ Delft, The Netherlands"
+      ]
+    }
+  ],
+  "updated": "2025-05-23T16:06:59Z"
+}
