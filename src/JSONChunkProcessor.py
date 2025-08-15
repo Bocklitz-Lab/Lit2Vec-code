@@ -87,7 +87,12 @@ class JSONChunkProcessor:
         input_files = [f for f in os.listdir(self.INPUT_FOLDER) if f.endswith(".json")]
         print(f"Found {len(input_files)} JSON files to process.")
 
-        num_workers = min(48, cpu_count() - 4)
+        try:
+            available_cpus = cpu_count() or 1
+        except NotImplementedError:
+            available_cpus = 1
+
+        num_workers = max(1, min(48, available_cpus - 1))
 
         with ThreadPool(processes=num_workers) as pool:
             results = list(tqdm(pool.imap_unordered(self.process_file, input_files),
