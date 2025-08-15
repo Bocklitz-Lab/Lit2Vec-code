@@ -1,92 +1,126 @@
 {
-    "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "https://your-domain.org/schemas/record.schema.json",
-    "title": "Lit2Vec Record",
-    "description": "A single normalized publication record from the Lit2Vec dataset, including metadata, chunked full text, embeddings, and license flags.",
-    "type": "object",
-    "required": [
-      "record_id",
-      "title",
-      "abstract",
-      "authors",
-      "published_date",
-      "doi",
-      "source",
-      "license_final",
-      "license_allows_derivatives",
-      "subfield",
-      "paragraphs",
-      "paragraph_embeddings"
-    ],
-    "properties": {
-      "record_id": {
-        "type": "string",
-        "description": "Unique identifier for this record, e.g., hash of DOI or OpenAlex ID."
-      },
-      "title": {
-        "type": "string",
-        "description": "Normalized title of the publication."
-      },
-      "abstract": {
-        "type": ["string", "null"],
-        "description": "Normalized abstract; may be null if missing."
-      },
-      "authors": {
-        "type": "array",
-        "items": {
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Lit2Vec Record Schema",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "corpus_id",
+    "metadata",
+    "abstract",
+    "paragraphs",
+    "embeddings",
+    "tldr",
+    "abstract_embedding",
+    "predicted_subfield"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "corpus_id": {
+      "type": ["string", "integer"]
+    },
+    "metadata": {
+      "type": "object",
+      "required": ["title", "authors", "venue", "year"],
+      "additionalProperties": false,
+      "properties": {
+        "_id": {
           "type": "string"
         },
-        "description": "List of author full names."
-      },
-      "published_date": {
-        "type": "string",
-        "format": "date",
-        "description": "Publication date in ISO format (YYYY-MM-DD)."
-      },
-      "doi": {
-        "type": ["string", "null"],
-        "description": "Digital Object Identifier (DOI) if available."
-      },
-      "source": {
-        "type": "string",
-        "description": "Source of the full text (e.g., openalex, unpaywall, publisher)."
-      },
-  
-      "license_final": {
-        "type": "string",
-        "description": "Resolved license string used for redistribution decision (e.g., CC-BY-4.0)."
-      },
-      "license_allows_derivatives": {
-        "type": "boolean",
-        "description": "Whether this record’s license permits redistribution of derivative works (e.g., transformed text or embeddings)."
-      },
-      "license_sources": {
-        "type": "object",
-        "properties": {
-          "unpaywall": { "type": ["string", "null"] },
-          "crossref": { "type": ["string", "null"] },
-          "openalex": { "type": ["string", "null"] }
+        "corpusid": {
+          "type": ["string", "integer"]
         },
-        "description": "Raw license strings as reported by each source."
-      },
-  
-      "subfield": {
-        "type": "string",
-        "description": "Predicted chemistry subfield label (e.g., analytical_chemistry, inorganic_chemistry, others)."
-      },
-  
-      "paragraphs": {
-        "type": "array",
-        "description": "List of normalized text paragraphs from the full text.",
-        "items": {
+        "externalids": {
+          "type": "object"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "title": {
+          "type": "string"
+        },
+        "authors": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name"],
+            "additionalProperties": false,
+            "properties": {
+              "authorId": {
+                "type": ["string", "integer", "null"]
+              },
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "venue": {
+          "type": "string"
+        },
+        "publicationvenueid": {
+          "type": ["string", "null"]
+        },
+        "year": {
+          "type": "integer",
+          "minimum": 1800,
+          "maximum": 2100
+        },
+        "referencecount": {
+          "type": ["integer", "null"],
+          "minimum": 0
+        },
+        "citationcount": {
+          "type": ["integer", "null"],
+          "minimum": 0
+        },
+        "influentialcitationcount": {
+          "type": ["integer", "null"],
+          "minimum": 0
+        },
+        "isopenaccess": {
+          "type": "boolean"
+        },
+        "publicationdate": {
+          "type": ["string", "null"],
+          "format": "date"
+        },
+        "s2fieldsofstudy": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "publicationtypes": {
+          "type": ["array", "null"]
+        },
+        "journal": {
+          "type": ["object", "null"]
+        }
+      }
+    },
+    "abstract": {
+      "type": "string"
+    },
+    "fulltext": {
+      "type": "string"
+    },
+    "paragraphs": {
+      "type": "object",
+      "patternProperties": {
+        "^\\d+P\\d+$": {
           "type": "string"
         }
       },
-  
-      "paragraph_embeddings": {
-        "type": "array",
-        "description": "List of vector embeddings for each paragraph, same order as 'paragraphs'.",
-        "items": {
+      "additionalProperties": false
+    },
+    "embeddings": {
+      "type": "object",
+      "patternProperties": {
+        "^\\d+P\\d+$": {
           "type": "array",
           "items": {
             "type": "number"
@@ -95,26 +129,35 @@
           "maxItems": 1024
         }
       },
-  
-      "summary_tldr": {
-        "type": ["string", "null"],
-        "description": "Optional: automatically generated TL;DR-style summary."
+      "additionalProperties": false
+    },
+    "abstract_embedding": {
+      "type": "array",
+      "items": {
+        "type": "number"
       },
-      "classifier_confidence": {
+      "minItems": 1024,
+      "maxItems": 1024
+    },
+    "tldr": {
+      "type": "string"
+    },
+    "predicted_subfield": {
+      "type": "object",
+      "additionalProperties": {
         "type": "number",
-        "minimum": 0,
-        "maximum": 1,
-        "description": "Confidence score from the subfield classifier."
-      },
-      "embedding_model": {
-        "type": "string",
-        "description": "Hugging Face model ID used for embedding (e.g., intfloat/e5-base-v2)."
-      },
-      "embedding_version": {
-        "type": "string",
-        "description": "Hash of model version or commit."
+        "minimum": 0.0,
+        "maximum": 1.0
       }
     },
-    "additionalProperties": false
+    "unpaywall_license": {
+      "type": ["object", "null"]
+    },
+    "crossref_license": {
+      "type": ["object", "null"]
+    },
+    "openalex_license": {
+      "type": ["object", "null"]
+    }
   }
-  
+}

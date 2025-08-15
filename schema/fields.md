@@ -1,124 +1,112 @@
-# 📄 Lit2Vec Dataset — Field Reference
+# Lit2Vec Record Field Documentation
 
-This document describes every field in a Lit2Vec dataset record. Each record is a JSON object conforming to [`record.schema.json`](./record.schema.json), containing normalized text, metadata, license flags, and paragraph embeddings.
-
----
-
-## 🧩 Metadata Fields
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `record_id` | `string` | Unique stable ID for the record (e.g., hash of DOI or OpenAlex ID). |
-| `title` | `string` | Normalized title of the publication. |
-| `abstract` | `string \| null` | Abstract text if available; `null` otherwise. |
-| `authors` | `array[string]` | List of author names in publication order. |
-| `published_date` | `string (YYYY-MM-DD)` | Publication date in ISO format. |
-| `doi` | `string \| null` | Digital Object Identifier if known; otherwise `null`. |
-| `source` | `string` | Text source (e.g., `openalex`, `unpaywall`, or publisher name). |
+This document describes each field in a `Lit2Vec` full-document record, as defined in `record.schema.json`. The schema follows [JSON Schema Draft 2020-12](https://json-schema.org/draft/2020-12/schema) and enforces strict typing, required fields, and value constraints.
 
 ---
 
-## 🔖 License Fields
+## 🔁 Top-Level Fields
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `license_final` | `string` | Final resolved license (e.g., `CC-BY-4.0`). |
-| `license_allows_derivatives` | `boolean` | Whether the license permits redistribution of derivative works. |
-| `license_sources` | `object` | Raw license data from each source:<br> - `unpaywall`: string or `null` <br> - `crossref`: string or `null` <br> - `openalex`: string or `null` |
-
----
-
-## 🧪 Classification & Labels
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `subfield` | `string` | Predicted chemistry subfield label (see list below). |
-| `classifier_confidence` | `number` (0–1) | Confidence score from the subfield classifier. |
-| `summary_tldr` | `string \| null` | Optional short summary (TL;DR) generated via LLM. |
-
----
-
-## 📄 Full Text & Embeddings
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `paragraphs` | `array[string]` | List of normalized paragraphs from the full text. |
-| `paragraph_embeddings` | `array[array[float]]` | List of 1024-dim float vectors, aligned with `paragraphs`. |
+| Field                | Type       | Required | Description |
+|---------------------|------------|----------|-------------|
+| `schema_version`     | string     | ✅        | Schema version identifier for audit/reproducibility (e.g., `v1.0.0`). |
+| `corpus_id`          | string/integer | ✅    | Globally unique identifier for the document. |
+| `metadata`           | object     | ✅        | Bibliographic and source metadata (see below). |
+| `abstract`           | string     | ✅        | Raw or normalized abstract text. |
+| `fulltext`           | string     | ❌        | Full unstructured body text (used internally; often excluded in distribution). |
+| `paragraphs`         | object     | ✅        | Mapping from paragraph IDs (e.g., `0P0`, `1P3`) to normalized text strings. |
+| `embeddings`         | object     | ✅        | Mapping from paragraph IDs to 1024-dimensional float embeddings. |
+| `abstract_embedding` | array      | ✅        | 1024-dimensional float vector for abstract embedding. |
+| `tldr`               | string     | ✅        | LLM-generated or human-written short summary. |
+| `predicted_subfield` | object     | ✅        | Map of subfield label → predicted probability. Values in [0, 1]. |
+| `unpaywall_license`  | object/null | ❌      | License object from Unpaywall API (if available). |
+| `crossref_license`   | object/null | ❌      | License object from Crossref metadata (if available). |
+| `openalex_license`   | object/null | ❌      | License object from OpenAlex (if available). |
 
 ---
 
-## 🧠 Embedding Provenance
+## 📚 `metadata` Object
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `embedding_model` | `string` | Hugging Face model ID (e.g., `intfloat/e5-base-v2`). |
-| `embedding_version` | `string` | Commit hash or version ID of the model/tokenizer used. |
-
----
-
-## 🛠 Optional / Advanced Fields
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `license_conflict_flag` | `boolean` | Optional flag if license sources disagree. |
-| `ingest_source_url` | `string` | Optional original URL for source document. |
-
----
-
-## 🧪 Subfield Label Vocabulary
-
-Possible values for `subfield` (18 total):
-
-- `analytical_chemistry`  
-- `biochemistry`  
-- `chemical_engineering`  
-- `computational_chemistry`  
-- `electrochemistry`  
-- `environmental_chemistry`  
-- `inorganic_chemistry`  
-- `materials_chemistry`  
-- `medicinal_chemistry`  
-- `nanochemistry`  
-- `natural_products`  
-- `nuclear_chemistry`  
-- `organic_chemistry`  
-- `organometallic_chemistry`  
-- `physical_chemistry`  
-- `polymer_chemistry`  
-- `theoretical_chemistry`  
-- `others` *(catch-all)*
+| Field                    | Type           | Required | Description |
+|--------------------------|----------------|----------|-------------|
+| `_id`                    | string         | ❌        | MongoDB-style ID (internal). |
+| `corpusid`               | string/integer | ❌        | Duplicate of `corpus_id` (legacy compatibility). |
+| `externalids`            | object         | ❌        | External ID map (DOI, PMID, ACL ID, etc.). |
+| `url`                    | string (uri)   | ❌        | Canonical URL to the source paper. |
+| `title`                  | string         | ✅        | Title of the article. |
+| `authors`                | array<object>  | ✅        | List of author objects with name and optional ID. |
+| `venue`                  | string         | ✅        | Publication venue (journal/conference name). |
+| `publicationvenueid`     | string/null    | ❌        | Source-specific venue ID (e.g., OpenAlex ID). |
+| `year`                   | integer        | ✅        | Publication year (1800–2100). |
+| `referencecount`         | integer/null   | ❌        | Number of references in the article. |
+| `citationcount`          | integer/null   | ❌        | Number of times the article has been cited. |
+| `influentialcitationcount` | integer/null | ❌      | Number of "influential" citations (per S2). |
+| `isopenaccess`           | boolean        | ❌        | Whether the paper is open access. |
+| `publicationdate`        | string/null    | ❌        | Full ISO date of publication (e.g., `"2021-07-15"`). |
+| `s2fieldsofstudy`        | array<object>  | ❌        | Semantic Scholar field labels (coarse). |
+| `publicationtypes`       | array/null     | ❌        | Document types (e.g., journal-article, book-chapter). |
+| `journal`                | object/null    | ❌        | Journal object (OpenAlex structure). |
 
 ---
 
-## 📎 Example Record (truncated)
+## 🧩 `paragraphs` Object
 
-```json
-{
-  "record_id": "f6c62e...",
-  "title": "A novel catalyst for selective CO2 reduction",
-  "abstract": "We report a catalyst based on...",
-  "authors": ["Alice Smith", "Bob Jones"],
-  "published_date": "2023-04-18",
-  "doi": "10.1000/xyz123",
-  "source": "openalex",
-  "license_final": "CC-BY-4.0",
-  "license_allows_derivatives": true,
-  "license_sources": {
-    "unpaywall": "cc-by",
-    "crossref": "CC-BY-4.0",
-    "openalex": null
-  },
-  "subfield": "inorganic_chemistry",
-  "classifier_confidence": 0.945,
-  "summary_tldr": "A cobalt-based catalyst selectively reduces CO2 to ethanol under mild conditions.",
-  "paragraphs": [
-    "Carbon dioxide reduction is a major goal...",
-    "In this study, we design a cobalt-based complex..."
-  ],
-  "paragraph_embeddings": [
-    [0.021, -0.113, ..., 0.054],
-    [0.035, -0.098, ..., 0.066]
-  ],
-  "embedding_model": "intfloat/e5-base-v2",
-  "embedding_version": "b7e3baf"
-}
+- Keys follow the format: `<section_index>P<paragraph_index>` (e.g., `0P0`, `1P2`).
+- Values are normalized paragraph text strings.
+- The order is guaranteed to match across `paragraphs` and `embeddings`.
+
+---
+
+## 🔢 `embeddings` Object
+
+- Keys match those in `paragraphs`.
+- Each value is an array of **exactly 1024** floats (`float32` assumed).
+- Format may be `.jsonl`, `.npy`, `.fbin`, or `.pq` depending on release packaging.
+
+---
+
+## 🧠 `abstract_embedding`
+
+- 1024-dimensional embedding for the abstract section.
+- Uses same encoder as `embeddings` (e.g., E5-base-v2 or similar).
+- `float32` values, ordered and deterministic.
+
+---
+
+## 🧪 `predicted_subfield`
+
+- Dictionary of label: probability (between 0.0 and 1.0).
+- You may use top-1 or top-k thresholds for downstream classification.
+- Values are model-predicted; not from source metadata.
+
+---
+
+## 🧾 `tldr`
+
+- One-line summary generated by a fine-tuned or prompting-based model.
+- Meant to be human-readable and dataset-consistent.
+
+---
+
+## 📜 Licensing Fields (Optional)
+
+These are raw license objects used for audit and filtering:
+
+| Field               | Type         | Description |
+|--------------------|--------------|-------------|
+| `unpaywall_license`| object/null  | License info as provided by Unpaywall. |
+| `crossref_license` | object/null  | License info from Crossref metadata. |
+| `openalex_license` | object/null  | License info from OpenAlex metadata. |
+
+---
+
+## 🧪 Notes
+
+- All floating point embeddings must be **deterministic** (same across machines for same input and model).
+- For privacy: no PII should exist in any field, including `tldr`, `abstract`, or `paragraphs`.
+- Downstream users should use the `license_*` fields to filter for redistribution-safe content.
+
+---
+
+For schema validation or example records, see:
+- [`record.schema.json`](./record.schema.json)
+- [`sample_record.json`](../samples/sample_record.json)
