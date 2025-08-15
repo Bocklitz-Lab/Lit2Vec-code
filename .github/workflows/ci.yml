@@ -23,3 +23,9 @@ jobs:
     - name: Run pipeline inside Docker (CPU-only mode)
       run: |
         make docker-run
+
+    - name: Upload pipeline output
+      uses: actions/upload-artifact@v4
+      with:
+        name: pipeline-output
+        path: results/
