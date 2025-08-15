@@ -31,4 +31,4 @@ RUN python -m nltk.downloader punkt && \
 COPY . /workspace
 
 # Default command runs your pipeline via Makefile
-CMD ["make", "run"]
+CMD ["make", "test-no-embed"]
