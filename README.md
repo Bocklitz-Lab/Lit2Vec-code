@@ -111,7 +111,7 @@ print(ds[0]["paragraphs"][:3])
 
 ---
 
-### Simplified for Reproducibility
+## Simplified for Reproducibility
 
 The released code is a cleaned, modular version of our production pipeline.
 It mirrors the full logic (e.g., license filtering, chunking, embedding) using a small demo subset (5 papers),
@@ -121,11 +121,11 @@ The full-scale version used MongoDB filtering and parallel embedding; logic is i
 
 ---
 
-### 🤖 Models
+## 🤖 Models
 
 This project provides two pretrained models to enrich the Lit2Vec dataset:
 
-#### 🔬 1. Subfield Classifier — [`lit2vec-subfield-classifier`](https://github.com/your-org/lit2vec-models/tree/main/subfield-classifier)
+### 🔬 1. Subfield Classifier — [`lit2vec-subfield-classifier`](https://github.com/your-org/lit2vec-models/tree/main/subfield-classifier)
 A multi-layer perceptron (MLP) trained on abstract embeddings to predict 18 chemistry subfields.  
 Used to annotate each document in the corpus with a predicted subfield and confidence score.
 
@@ -138,7 +138,7 @@ Used to annotate each document in the corpus with a predicted subfield and confi
 
 ---
 
-#### ✍️ 2. TL;DR Summarizer — [`lit2vec-tldr-bart`](https://github.com/your-org/lit2vec-models/tree/main/tldr-bart)
+### ✍️ 2. TL;DR Summarizer — [`lit2vec-tldr-bart`](https://github.com/your-org/lit2vec-models/tree/main/tldr-bart)
 A fine-tuned DistilBART model that generates TL;DR-style summaries for scientific abstracts.  
 Summaries are included in the dataset under the `summary_tldr` field.
 
@@ -148,6 +148,20 @@ Summaries are included in the dataset under the `summary_tldr` field.
 
 👉 [View code and configs](https://github.com/Bocklitz-Lab/lit2vec-tldr-bart)  
 📦 [Pretrained model on Hugging Face](https://huggingface.co/Bocklitz-Lab/lit2vec-tldr-bart)
+
+---
+
+## 📦 Access the Dataset
+
+The **Lit2Vec** dataset (≈1 TB) is publicly available on the Hugging Face Hub:
+
+👉 [**https://huggingface.co/datasets/Bocklitz-Lab/Lit2Vec**](https://huggingface.co/datasets/Bocklitz-Lab/Lit2Vec)
+
+### 🔹 Contents
+- ~580,000 CC-licensed chemistry papers (normalized markdown)
+- 28+ million paragraph embeddings (1024-dim float32 vectors)
+- TL;DR summaries and predicted research subfields
+- License metadata and provenance for each record
 
 ---
 
