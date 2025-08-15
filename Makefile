@@ -10,7 +10,14 @@ docker-build:
 
 .PHONY: docker-run
 docker-run:
-	docker run --rm -v $(PWD):/workspace -w /workspace lit2vec
+	@if [ "$$CI" = "true" ]; then \
+		echo "Running in CI - no GPU"; \
+		docker run --rm -v $(PWD):/workspace -w /workspace lit2vec; \
+	else \
+		echo "Running locally - with GPU"; \
+		docker run --rm --gpus all -v $(PWD):/workspace -w /workspace lit2vec; \
+	fi
+
 
 
 # ==== PIPELINE STAGES ====
