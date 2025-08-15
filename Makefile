@@ -10,13 +10,8 @@ docker-build:
 
 .PHONY: docker-run
 docker-run:
-	@if command -v nvidia-smi &> /dev/null; then \
-		echo "Running with GPU..."; \
-		docker run --rm -it --gpus all -v $(PWD):/workspace -w /workspace lit2vec; \
-	else \
-		echo "Running without GPU..."; \
-		docker run --rm -it -v $(PWD):/workspace -w /workspace lit2vec; \
-	fi
+	docker run --rm -v $(PWD):/workspace -w /workspace lit2vec
+
 
 # ==== PIPELINE STAGES ====
 .PHONY: metadata
@@ -50,7 +45,7 @@ all: metadata normalize chunk embed validate package
 .PHONY: run
 run: metadata normalize chunk embed validate package
 
-# ==== test ====
+# ==== CI TEST ====
 .PHONY: test-no-embed
 test-no-embed: metadata normalize chunk validate package
 
