@@ -121,6 +121,36 @@ The full-scale version used MongoDB filtering and parallel embedding; logic is i
 
 ---
 
+### 🤖 Models
+
+This project provides two pretrained models to enrich the Lit2Vec dataset:
+
+#### 🔬 1. Subfield Classifier — [`lit2vec-subfield-classifier`](https://github.com/your-org/lit2vec-models/tree/main/subfield-classifier)
+A multi-layer perceptron (MLP) trained on abstract embeddings to predict 18 chemistry subfields.  
+Used to annotate each document in the corpus with a predicted subfield and confidence score.
+
+- Input: 768-dim E5-base-v2 embeddings of abstracts
+- Output: One of 18 chemistry domains (e.g., Organic, Physical, Biochemistry)
+- Accuracy: ~92.7% on a GPT-4o-labeled CC-BY validation set
+
+👉 [View code and training configs](https://github.com/Bocklitz-Lab/lit2vec-subfield-classifier)  
+📦 [Pretrained model on Hugging Face](https://huggingface.co/Bocklitz-Lab/lit2vec-subfield-classifier)
+
+---
+
+#### ✍️ 2. TL;DR Summarizer — [`lit2vec-tldr-bart`](https://github.com/your-org/lit2vec-models/tree/main/tldr-bart)
+A fine-tuned DistilBART model that generates TL;DR-style summaries for scientific abstracts.  
+Summaries are included in the dataset under the `summary_tldr` field.
+
+- Base model: `sshleifer/distilbart-cnn-12-6`
+- Training: 43k CC-BY abstracts with GPT-4o-generated summaries
+- BLEURT: 0.318 ± 0.05
+
+👉 [View code and configs](https://github.com/Bocklitz-Lab/lit2vec-tldr-bart)  
+📦 [Pretrained model on Hugging Face](https://huggingface.co/Bocklitz-Lab/lit2vec-tldr-bart)
+
+---
+
 ## 📜 Licensing
 
 * **Corpus:** All texts are CC-licensed and allow derivative use (no CC-ND content included)
