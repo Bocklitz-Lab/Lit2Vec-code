@@ -35,3 +35,6 @@ python-dateutil==2.9.0
 
 pymongo==4.6.0
 bert-score==0.3.13
+
+deepdiff==6.3.0
+PyYAML==6.0

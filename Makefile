@@ -41,20 +41,20 @@ embed:
 validate:
 	$(PYTHON) -m pipelines.05_Validate.run --config $(CONFIG_FILE)
 
-.PHONY: package
-package:
-	$(PYTHON) -m pipelines.06_Package.run --config $(CONFIG_FILE)
+.PHONY: compare
+compare:
+	$(PYTHON) -m pipelines.06_Compare.run --config $(CONFIG_FILE)
 
 .PHONY: all
-all: metadata normalize chunk embed validate package
+all: metadata normalize chunk embed validate compare
 
 # ==== FULL PIPELINE ====
 .PHONY: run
-run: metadata normalize chunk embed validate package
+run: metadata normalize chunk embed validate compare
 
 # ==== CI TEST ====
 .PHONY: test-no-embed
-test-no-embed: metadata normalize chunk validate package
+test-no-embed: metadata normalize chunk validate compare
 
 # ==== CLEANUP ====
 .PHONY: clean

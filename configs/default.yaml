@@ -91,3 +91,7 @@ VALIDATOR_CONFIG:
 
   validator_version: "lit2vec-qc@0.4.0"
   schema_version: "1.0"
+
+COMPARE_CONFIG:
+  ground_truth_dir: ground_truth/validation/
+  generated_dir: results/validation/
