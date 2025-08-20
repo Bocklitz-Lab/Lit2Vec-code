@@ -41,7 +41,7 @@ JSON2MD:
   min_words_per_section: 10
 
 
-JSONChunkProcessor:
+ChunkProcessor:
   input_folder: "results/pipeline_output/"
   output_folder: "results/pipeline_output/"
   chunk_size: 200

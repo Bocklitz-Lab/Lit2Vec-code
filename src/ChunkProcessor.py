@@ -9,7 +9,7 @@ from transformers import AutoTokenizer
 from src.recursive_token_chunker import RecursiveTokenChunker
 
 
-class JSONChunkProcessor:
+class ChunkProcessor:
     def __init__(self,
                  input_folder="data/processed_json",
                  output_folder="data/chunked_json",

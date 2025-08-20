@@ -1,7 +1,7 @@
 # run.py
 import argparse
 import yaml
-from src.metadata_processor import MetadataProcessor  # Assuming you'll place the class in src/metadata_processor.py
+from src.metadata_processor import MetadataProcessor  
 
 def main():
     parser = argparse.ArgumentParser(description="Run metadata processing pipeline.")

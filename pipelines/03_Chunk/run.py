@@ -2,10 +2,10 @@
 
 import argparse
 import yaml
-from src.JSONChunkProcessor import JSONChunkProcessor  # Adjust this import if needed
+from src.ChunkProcessor import ChunkProcessor  # Adjust this import if needed
 
 def main():
-    parser = argparse.ArgumentParser(description="Run JSONChunkProcessor with config file.")
+    parser = argparse.ArgumentParser(description="Run ChunkProcessor with config file.")
     parser.add_argument(
         "--config",
         type=str,
@@ -17,9 +17,9 @@ def main():
     with open(args.config, 'r') as f:
         config = yaml.safe_load(f)
 
-    processor_config = config.get("JSONChunkProcessor", {})
+    processor_config = config.get("ChunkProcessor", {})
 
-    processor = JSONChunkProcessor(
+    processor = ChunkProcessor(
         input_folder=processor_config.get("input_folder", "data/processed_json"),
         output_folder=processor_config.get("output_folder", "data/chunked_json"),
         chunk_size=processor_config.get("chunk_size", 200),
