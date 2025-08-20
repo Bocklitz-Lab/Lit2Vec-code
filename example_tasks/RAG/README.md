@@ -59,18 +59,17 @@ You can either:
 Copy the provided JSON sample dataset into:
 
 ```
-example_tasks/RAG/lit2vec_1K_sample_records
+example_docs/lit2vec_1K_sample_records
 ```
 
 Your folder tree should look like:
 
 ```
-example_tasks/
-└── RAG/
-    └── lit2vec_1K_sample_records/
-        ├── 37254803.json
-        ├── 9587808.json
-        └── ...
+example_docs/
+└── lit2vec_1K_sample_records/
+    ├── 37254803.json
+    ├── 9587808.json
+    └── ...
 
 ```
 ---
