@@ -38,7 +38,7 @@ git clone git@github.com:Bocklitz-Lab/Lit2Vec-code.git
 cd lit2vec
 ```
 
-1. **Set your OpenAI API key**
+2. **Set your OpenAI API key**
 
 You can either:
 
@@ -53,6 +53,26 @@ You can either:
  OPENAI_API_KEY=sk-...
  ```
 
+
+3. **Put sample records inside folder**
+
+Copy the provided JSON sample dataset into:
+
+```
+example_tasks/RAG/lit2vec_1K_sample_records
+```
+
+Your folder tree should look like:
+
+```
+example_tasks/
+└── RAG/
+    └── lit2vec_1K_sample_records/
+        ├── 37254803.json
+        ├── 9587808.json
+        └── ...
+
+```
 ---
 
 ## 🧠 How It Works
