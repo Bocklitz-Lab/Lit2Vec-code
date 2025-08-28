@@ -1,0 +1,3 @@
+label,n_overlap,kappa,pearson_r,spearman_r,exact_match_pct,within_1pt_pct
+Field Classification Rating (aligned on task_title),5,,,,0.6,0.8
+Summary Rating (aligned on task_title),4,,,,0.75,1.0
