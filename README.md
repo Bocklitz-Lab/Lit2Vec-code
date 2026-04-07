@@ -44,6 +44,17 @@ make validate
 make package
 ```
 
+### Run pipeline profiles
+
+```bash
+make repro
+make prod
+```
+
+The current reproducibility pipeline is preserved as-is. The production profile
+uses the same stage code but a separate config and output location, so future
+production-only modules can be added without forking the existing stage logic.
+
 ### Download the release
 
 ```bash
@@ -118,6 +129,13 @@ It mirrors the full logic (e.g., license filtering, chunking, embedding) using a
 and is designed for transparency, reproducibility, and ease of inspection.
 
 The full-scale version used MongoDB filtering and parallel embedding; logic is identical.
+
+To keep the reproducibility path stable while making room for production, this
+repo now includes a shared runner at [`pipelines/run_pipeline.py`](pipelines/run_pipeline.py)
+plus separate configs under [`configs/repro/`](configs/repro/) and
+[`configs/production/`](configs/production/). Production-only stages can be
+added later by inserting their module paths into `PIPELINE.stages` in the
+production config.
 
 ---
 
@@ -214,5 +232,4 @@ Also cite the dataset release:
 © 2025 Your Lab/Institution. Dataset created and released under the [FAIR principles](https://www.go-fair.org/fair-principles/).
 
 ```
-
 

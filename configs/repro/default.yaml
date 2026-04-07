@@ -1,0 +1,105 @@
+# --- General metadata ---
+version: "1.0.0"
+date_created: "2025-08-14"
+created_by: "Lit2Vec Pipeline"
+
+
+PIPELINE:
+  profile: "repro"
+  stages:
+    - metadata
+    - normalize
+    - chunk
+    - embed
+    - validate
+    - compare
+
+
+# --- Pipeline configuration ---
+METADATA_PROCESSOR:
+  base_input_folder: "example_docs/"
+  output_folder: "results/pipeline_output/"
+
+  input_folders:
+    metadata: "semanticscholar_metadata"
+    abstracts: "semanticscholar_abstracts"
+    licenses: "licences"
+
+  license_sources:
+    - "unpaywall"
+    - "crossref"
+    - "openalex"
+
+
+JSON2MD:
+  input_dir: example_docs/semanticscholar_s2orc
+  output_dir: results/pipeline_output/
+
+  common_headers:
+    - abstract
+    - introduction
+    - methods
+    - experimental methods
+    - materials and methods
+    - results
+    - results and discussion
+    - discussion
+    - conclusion
+    - conclusions
+    - references
+    - supporting information
+
+  min_words_per_section: 10
+
+
+ChunkProcessor:
+  input_folder: "results/pipeline_output/"
+  output_folder: "results/pipeline_output/"
+  chunk_size: 200
+  chunk_overlap: 20
+  token_threshold: 100
+  tokenizer_name: "intfloat/e5-large"
+
+
+PARAGRAPH_EMBEDDINGS:
+  input_folder: results/pipeline_output/
+  output_folder: results/pipeline_output/
+  min_file_size_kb: 5
+  model_name: intfloat/e5-large-v2
+  batch_size: 32
+  normalize_embeddings: true
+
+
+ABSTRACT_EMBEDDINGS:
+  input_folder: results/pipeline_output/
+  output_folder: results/pipeline_output/
+  min_file_size_kb: 1
+  model_name: intfloat/e5-large-v2
+  normalize_embeddings: true
+
+
+VALIDATOR_CONFIG:
+  input_folder: "results/pipeline_output/"
+  output_folder: "results/validation/"
+  chunk_size: 1000
+
+  hash_exclude_keys:
+    - abstract_embedding
+    - corpus_id
+    - embeddings
+    - schema_version
+    - validation_info
+
+  summary_evaluator:
+    model_type: "bert-base-uncased"
+    backend: "evaluate"
+
+  schema_validator:
+    max_errors: 50
+
+  validator_version: "lit2vec-qc@0.4.0"
+  schema_version: "1.0"
+
+COMPARE_CONFIG:
+  ground_truth_dir: ground_truth/validation/
+  generated_dir: results/validation/

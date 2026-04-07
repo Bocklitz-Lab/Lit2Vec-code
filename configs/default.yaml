@@ -4,6 +4,17 @@ date_created: "2025-08-14"
 created_by: "Lit2Vec Pipeline"
 
 
+PIPELINE:
+  profile: "repro"
+  stages:
+    - metadata
+    - normalize
+    - chunk
+    - embed
+    - validate
+    - compare
+
+
 # --- Pipeline configuration ---
 METADATA_PROCESSOR:
   base_input_folder: "example_docs/"

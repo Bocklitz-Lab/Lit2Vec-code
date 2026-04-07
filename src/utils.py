@@ -3,7 +3,6 @@ import re
 from fuzzywuzzy import fuzz
 from fuzzywuzzy import process
 import os
-from chromadb.utils import embedding_functions
 import tiktoken
 
 def find_query_despite_whitespace(document, query):
@@ -86,10 +85,26 @@ def get_openai_embedding_function():
     openai_api_key = os.getenv('OPENAI_API_KEY')
     if openai_api_key is None:
         raise ValueError("You need to set an embedding function or set an OPENAI_API_KEY environment variable.")
-    embedding_function = embedding_functions.OpenAIEmbeddingFunction(
-        api_key=os.getenv('OPENAI_API_KEY'),
-        model_name="text-embedding-3-large"
-    )
+
+    try:
+        from openai import OpenAI
+    except ImportError as exc:
+        raise ImportError(
+            "The optional 'openai' package is required to create an OpenAI embedding function."
+        ) from exc
+
+    client = OpenAI(api_key=openai_api_key)
+
+    def embedding_function(texts):
+        if isinstance(texts, str):
+            texts = [texts]
+
+        response = client.embeddings.create(
+            model="text-embedding-3-large",
+            input=texts,
+        )
+        return [item.embedding for item in response.data]
+
     return embedding_function
 
 # Count the number of tokens in each page_content
