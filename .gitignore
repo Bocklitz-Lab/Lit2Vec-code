@@ -211,3 +211,4 @@ results/
 example_docs/lit2vec_1K_sample_records/
 example_tasks/RAG/.env
 myenv/
+tmp/*
