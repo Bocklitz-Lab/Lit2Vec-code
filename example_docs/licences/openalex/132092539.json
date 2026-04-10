@@ -1,3 +1,45 @@
 {
-  "license": "cc-by"
+  "doi": "https://doi.org/10.1002/adsc.201900205",
+  "title": "CH‐π Interactions Promote the Conversion of Hydroxypyruvate in a Class II Pyruvate Aldolase",
+  "open_access": {
+    "is_oa": true,
+    "oa_status": "hybrid",
+    "oa_url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/adsc.201900205",
+    "any_repository_has_fulltext": true
+  },
+  "primary_location": {
+    "source": {
+      "id": "https://openalex.org/S36069537",
+      "issn_l": "1615-4150",
+      "issn": [
+        "1615-4150",
+        "1615-4169"
+      ],
+      "display_name": "Advanced Synthesis & Catalysis",
+      "publisher": "Wiley",
+      "host_organization": "https://openalex.org/P4310320595",
+      "host_organization_name": "Wiley",
+      "host_organization_lineage": [
+        "https://openalex.org/P4310320595"
+      ],
+      "host_organization_lineage_names": [
+        "Wiley"
+      ],
+      "is_oa": false,
+      "is_in_doaj": false,
+      "is_core": true,
+      "is_indexed_in_scopus": true,
+      "type": "journal",
+      "type_id": "https://openalex.org/source-types/journal"
+    },
+    "pdf_url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/adsc.201900205",
+    "landing_page_url": "https://doi.org/10.1002/adsc.201900205",
+    "is_oa": true,
+    "version": "publishedVersion",
+    "license": "cc-by",
+    "license_id": "https://openalex.org/licenses/cc-by",
+    "doi": "https://doi.org/10.1002/adsc.201900205",
+    "is_accepted": true,
+    "is_published": true
+  }
 }

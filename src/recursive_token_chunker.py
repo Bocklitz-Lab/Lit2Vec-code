@@ -48,6 +48,7 @@ class RecursiveTokenChunker(TextSplitter):
 
         # Load the correct tokenizer
         self._tokenizer = AutoTokenizer.from_pretrained(model_name)
+        self._tokenizer.model_max_length = max(self._tokenizer.model_max_length, 10**9)
 
         # Define token-based length function
         def token_length(text: str) -> int:

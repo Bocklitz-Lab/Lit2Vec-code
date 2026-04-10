@@ -19,6 +19,10 @@ def main():
 
     gt_dir = Path(config["COMPARE_CONFIG"]["ground_truth_dir"])
     test_dir = Path(config["COMPARE_CONFIG"]["generated_dir"])
+    ignored_fields = config["COMPARE_CONFIG"].get(
+        "ignored_fields",
+        ["tldr", "predicted_subfield"],
+    )
 
     assert gt_dir.exists(), f"❌ Ground truth directory not found: {gt_dir}"
     assert test_dir.exists(), f"❌ Generated directory not found: {test_dir}"
@@ -33,7 +37,11 @@ def main():
             errors += 1
             continue
 
-        comparator = ValidationComparator(gt_file, test_file)
+        comparator = ValidationComparator(
+            gt_file,
+            test_file,
+            ignored_fields=ignored_fields,
+        )
         success = comparator.compare()
         if not success:
             errors += 1

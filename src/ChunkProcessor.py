@@ -31,9 +31,18 @@ class ChunkProcessor:
         )
 
         self.tokenizer = AutoTokenizer.from_pretrained(tokenizer_name)
+        # We only use the tokenizer for length estimation here, not model inference.
+        self.tokenizer.model_max_length = max(self.tokenizer.model_max_length, 10**9)
 
     def count_tokens(self, text):
         return len(self.tokenizer.encode(text, add_special_tokens=False))
+
+    @staticmethod
+    def _format_paragraph(chunk: str) -> str:
+        chunk = chunk.strip()
+        if not chunk:
+            return chunk
+        return chunk if chunk.startswith("passage: ") else f"passage: {chunk}"
 
     def merge_small_chunks(self, chunks):
         merged_chunks = []
@@ -74,7 +83,7 @@ class ChunkProcessor:
         file_stem = os.path.splitext(file)[0]
 
         for idx, chunk in enumerate(merged_chunks):
-            paragraphs[f"{file_stem}P{idx}"] = chunk
+            paragraphs[f"{file_stem}P{idx}"] = self._format_paragraph(chunk)
 
         data["paragraphs"] = paragraphs
 

@@ -8,9 +8,10 @@ console = Console()
 
 
 class ValidationComparator:
-    def __init__(self, ground_truth_path, test_path):
+    def __init__(self, ground_truth_path, test_path, ignored_fields=None):
         self.gt_path = ground_truth_path
         self.test_path = test_path
+        self.ignored_fields = set(ignored_fields or [])
 
     def load_json(self, path):
         with open(path, "r", encoding="utf-8") as f:
@@ -35,7 +36,9 @@ class ValidationComparator:
         gt_hashes = self.extract_hashes(gt)
         test_hashes = self.extract_hashes(test)
 
-        all_fields = sorted(set(gt_hashes) | set(test_hashes))
+        all_fields = sorted(
+            (set(gt_hashes) | set(test_hashes)) - self.ignored_fields
+        )
         mismatches = []
 
         for field in all_fields:

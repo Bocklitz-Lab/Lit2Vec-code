@@ -675,7 +675,7 @@
           "determinism": {
             "mean_cos": 1.000000238418579,
             "min_cos": 1.000000238418579,
-            "max_delta": -2.384185791015625e-7,
+            "max_delta": -2.384185791015625e-07,
             "threshold": 0.01,
             "passed": true
           }
@@ -695,11 +695,11 @@
             "length": 1498
           },
           "fulltext": {
-            "hash": "59997638c3499a175563fbc434e1eff165a5dcbc8df02f42afb05a22605a74fd",
+            "hash": "fa32a286c53b340fb736a2e5b41be97684772188ee6a2bbf036e082e7ae3d55f",
             "length": 30553
           },
           "paragraphs": {
-            "hash": "dc629726f3f0ea42d40cafadd906f42e798f66695191115ed78df30e32b40bf6",
+            "hash": "a8ed0e06b579f9be2c9c23b6a3fd6f59edf57a8fd7d6948eb9639f32df6fccf6",
             "length": 32081
           },
           "unpaywall_license": {

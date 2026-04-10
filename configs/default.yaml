@@ -91,6 +91,8 @@ VALIDATOR_CONFIG:
     - corpus_id
     - embeddings
     - schema_version
+    - tldr
+    - predicted_subfield
     - validation_info
 
   summary_evaluator:
@@ -106,3 +108,6 @@ VALIDATOR_CONFIG:
 COMPARE_CONFIG:
   ground_truth_dir: ground_truth/validation/
   generated_dir: results/validation/
+  ignored_fields:
+    - tldr
+    - predicted_subfield

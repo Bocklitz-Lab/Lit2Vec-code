@@ -1,6 +1,7 @@
 # src/ValidatorPipeline.py
 
 import os
+os.environ.setdefault("TOKENIZERS_PARALLELISM", "false")
 import glob
 import json
 import gc

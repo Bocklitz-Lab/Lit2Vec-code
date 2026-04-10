@@ -47,6 +47,7 @@ class ChunkValidator:
             if isinstance(tokenizer, PreTrainedTokenizer)
             else AutoTokenizer.from_pretrained(tokenizer, use_fast=True)
         )
+        self.tokenizer.model_max_length = max(self.tokenizer.model_max_length, 10**9)
         self.max_tokens = max_tokens
         self.min_tokens = min_tokens
         self.vector_dim = expected_vector_dim
