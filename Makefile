@@ -69,6 +69,5 @@ test-no-embed: metadata normalize chunk validate compare
 # ==== CLEANUP ====
 .PHONY: clean
 clean:
-	rm -rf ./results/pipeline/*
-	rm -rf ./data/chunked_json
-	rm -rf ./data/embeddings
+	rm -rf ./results/pipeline_output/* ./results/validation/*
+	rm -rf ./results/production/pipeline_output/* ./results/production/validation/*

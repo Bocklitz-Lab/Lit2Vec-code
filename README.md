@@ -133,7 +133,7 @@ The materials in this project are licensed as follows:
 
 | Material | License |
 |---|---|
-| Code (this repository and the two training repositories) | MIT |
+| Code (this repository and the two training repositories) | MIT (copied chunking code keeps its original notices, see [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md)) |
 | Validation reports, schema and example records | CC-BY 4.0 |
 | TL;DR and subfield supervision datasets | CC-BY 4.0 |
 | Model weights | Apache-2.0 |

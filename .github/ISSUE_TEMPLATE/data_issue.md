@@ -1,5 +1,5 @@
 ---
-name: 🧪 Data issue
+name: Data issue
 about: Report an error or concern in the dataset
 ---
 

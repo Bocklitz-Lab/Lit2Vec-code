@@ -1,126 +1,33 @@
-# Packaging: Final Dataset Export
+# Stage 06: compare record hashes
 
-This stage assembles all processed components into a structured, versioned release for public distribution.
-
----
-
-## 🎯 Goal
-
-Produce a reproducible, license-compliant dataset release that includes:
-
-- Normalized full-text records (JSONL + Zstandard)
-- Embedding shards (FAISS or binary format)
-- Metadata (manifest, stats, license map)
-- Schema, checksums, and sample subsets
-
-Each release is versioned (e.g., `v1.0.0`) and archived via Zenodo/Hugging Face Datasets.
-
----
-
-## 📂 Output Structure
-
-```
-
-lit2vec-v1.0.0/
-├── data/
-│   ├── records-00000.jsonl.zst
-│   ├── records-00001.jsonl.zst
-│   └── ...
-├── embeddings/
-│   ├── paragraphs-00000.fbin
-│   └── ...
-├── stats/
-│   ├── global.json
-│   ├── licenses.json
-│   └── validation\_report.html
-├── schema/
-│   └── record.schema.json
-├── samples/
-│   └── 1k\_sample.jsonl
-├── checksums.txt
-├── manifest.json
-└── README.md  ← this file
-
-````
-
----
-
-## 📦 Data Formats
-
-- `*.jsonl.zst` — JSON Lines compressed with Zstandard (`zstd -T0 -19`)
-- `*.fbin` — Embeddings in binary float32 format (`n_chunks × 1024 dim`)
-- `record.schema.json` — JSON Schema describing all fields
-- `manifest.json` — file sizes, shard IDs, and types
-- `checksums.txt` — SHA256 for all files (reproducibility)
-- `stats/` — license counts, subfield counts, quality metrics
-
----
-
-## 🔐 Licensing
-
-Each record includes:
-- `license_unpaywall`, `license_crossref`, `license_openalex`
-- A resolved `license_final` string (e.g., `CC-BY-4.0`)
-- A boolean `license_allows_derivatives`
-
-❗ Records that do **not** permit redistribution of modified content (`ND` licenses) are **excluded from full text output** — only metadata is preserved.
-
----
-
-## 🧪 Validation
-
-- All outputs are schema-validated (`schema_check.py`)
-- Embedding alignment checked against record UUIDs
-- Global stats recomputed to ensure consistency with earlier stages
-
----
-
-## ⚙️ Reproduce
-
-Run the full packaging pipeline:
+This stage checks that a rebuilt record is identical to a reference. It compares the per-field hashes that the validation stage (`05_Validate`) writes into each report with the hashes in a folder of reference reports. By default the reference reports are the ones in `ground_truth/validation/`.
 
 ```bash
-make package
-````
-
-Or directly:
-
-```bash
-python pipelines/06_package/build_release.py \
-  --input_records=data/normalized/ \
-  --input_embeddings=embeddings/ \
-  --output_dir=release/lit2vec-v1.0.0 \
-  --config=configs/default.yaml
+make compare
+# or
+python -m pipelines.06_Compare.run --config configs/default.yaml
 ```
 
----
+## What is compared
 
-## 🔄 Versioning
+The validation stage hashes every top-level field of a record with SHA-256, after serialising it as JSON with sorted keys and no extra whitespace (`src/RecordHasher.py`). Fields listed under `VALIDATOR_CONFIG.hash_exclude_keys` are skipped. In the default configuration these are `abstract_embedding`, `corpus_id`, `embeddings`, `schema_version`, `tldr`, `predicted_subfield` and `validation_info`. What remains is `metadata`, `abstract`, `fulltext`, `paragraphs` and the three license payloads. The embedding vectors are therefore not part of this comparison. They are checked in the validation stage, which re-encodes a sample of paragraphs and compares cosine similarity.
 
-Releases follow semantic versioning:
+## Configuration
 
-* `v1.0.0` — initial release (582,683 records, 28.8M chunks)
-* `v1.1.0` — added subfield confidence scores
-* `v2.0.0` — changed embedding model (E5 → E5-v2), schema change
+The stage reads the `COMPARE_CONFIG` block of the YAML file:
 
----
+| Key | Meaning |
+|---|---|
+| `ground_truth_dir` | Folder with the reference reports (`<corpus_id>.json`). |
+| `generated_dir` | Folder with the reports from your run. |
+| `ignored_fields` | Fields whose hashes are not compared. The default is `tldr` and `predicted_subfield`, which come from the enrichment models and not from the pipeline. |
 
-## 📤 Upload Targets
+## Behaviour
 
-* [ ] ✅ Zenodo (via GitHub tag → DOI)
-* [ ] ✅ Hugging Face Datasets (`lit2vec/lit2vec`)
-* [ ] 🔄 S3 mirror (optional)
+For every file in `ground_truth_dir` the stage looks for a file with the same name in `generated_dir`. A missing file is reported and counted. For each existing pair it prints the fields whose hashes differ, with the expected and the found value. At the end it prints a summary line. The stage does not exit with a non-zero status when hashes differ, so check its output (or its log in CI) and not its return code.
 
----
+## Comparing with the published reports
 
-## 📎 See Also
+The validation reports of the study corpus are on Hugging Face (see the main [README](../../README.md)). To compare records you rebuilt yourself, extract the reports for those records into a folder of their own and point `ground_truth_dir` at it. Do not point it at all 582,683 reports unless you rebuilt all of them, because every record without a counterpart in `generated_dir` is reported as missing. Reports written by earlier versions of the validator also contain hashes for `tldr` and `predicted_subfield`. The default `ignored_fields` skips them.
 
-* [schema/record.schema.json](../schema/record.schema.json)
-* [configs/default.yaml](../../configs/default.yaml)
-* [scripts/license\_audit.py](../../scripts/license_audit.py)
-* [stats/global.json](./stats/global.json)
-
----
-
-*Last updated: 2025-08-14*
-
+Hashes of the license payloads (`unpaywall_license`, `crossref_license`, `openalex_license`) only match if your metadata snapshot matches the one used for the reference. Live API responses change over time.

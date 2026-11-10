@@ -37,5 +37,14 @@ tensorflow-cpu==2.15.0
 pymongo==4.6.0
 bert-score==0.3.13
 
+# Example tasks (example_tasks/) and the chunking helpers
+attrs==23.2.0
+faiss-cpu==1.8.0
+openai==1.35.7
+python-dotenv==1.0.1
+matplotlib==3.9.0
+seaborn==0.13.2
+duckdb==1.0.0
+
 deepdiff==6.3.0
 PyYAML==6.0
