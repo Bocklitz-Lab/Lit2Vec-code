@@ -1,7 +1,9 @@
 # ==== CONFIG ====
-PYTHON=python
-PIP=pip
-CONFIG_FILE=./configs/default.yaml
+PYTHON?=python3
+PIP?=pip3
+CONFIG_FILE?=./configs/default.yaml
+REPRO_CONFIG_FILE=./configs/repro/default.yaml
+PROD_CONFIG_FILE=./configs/production/default.yaml
 
 # ==== DOCKER ====
 .PHONY: docker-build
@@ -52,6 +54,14 @@ all: metadata normalize chunk embed validate compare
 .PHONY: run
 run: metadata normalize chunk embed validate compare
 
+.PHONY: repro
+repro:
+	$(PYTHON) -m pipelines.run_pipeline --config $(REPRO_CONFIG_FILE) --profile repro
+
+.PHONY: prod
+prod:
+	$(PYTHON) -m pipelines.run_pipeline --config $(PROD_CONFIG_FILE) --profile production
+
 # ==== CI TEST ====
 .PHONY: test-no-embed
 test-no-embed: metadata normalize chunk validate compare
@@ -59,6 +69,5 @@ test-no-embed: metadata normalize chunk validate compare
 # ==== CLEANUP ====
 .PHONY: clean
 clean:
-	rm -rf ./results/pipeline/*
-	rm -rf ./data/chunked_json
-	rm -rf ./data/embeddings
+	rm -rf ./results/pipeline_output/* ./results/validation/*
+	rm -rf ./results/production/pipeline_output/* ./results/production/validation/*

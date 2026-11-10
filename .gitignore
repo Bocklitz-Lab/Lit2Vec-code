@@ -212,3 +212,7 @@ example_docs/lit2vec_1K_sample_records/
 example_tasks/RAG/.env
 myenv/
 .codex
+tmp/*
+
+# Output of the dataset downloader (tmp/s2ag.py): API listings, not source
+semantic_scholar_latest_release/

@@ -49,6 +49,13 @@ class EmbeddingProcessor:
     def get_gpu_temperature(self):
         return pynvml.nvmlDeviceGetTemperature(self.gpu_handle, pynvml.NVML_TEMPERATURE_GPU)
 
+    @staticmethod
+    def _format_passage(text):
+        text = text.strip()
+        if not text:
+            return text
+        return text if text.startswith("passage: ") else f"passage: {text}"
+
     def process_files(self):
         for filename in os.listdir(self.input_folder):
             if not filename.endswith(".json"):
@@ -71,7 +78,7 @@ class EmbeddingProcessor:
                     continue
 
                 keys = list(paragraphs.keys())
-                texts = [f"passage: {paragraphs[k]}" for k in keys]
+                texts = [self._format_passage(paragraphs[k]) for k in keys]
 
                 embeddings = self.model.encode(
                     texts,

@@ -8,6 +8,7 @@ nltk===3.8.1
 spacy
 transformers==4.41.2
 sentence-transformers==2.7.0
+huggingface_hub>=0.33.5,<1.0
 accelerate==0.31.0
 tokenizers==0.19.1
 datasets==2.21.0
@@ -24,7 +25,6 @@ torchaudio==2.2.2+cu118
 --extra-index-url https://download.pytorch.org/whl/cu118
 
 fuzzywuzzy[speedup]==0.18.0
-chromadb<0.5
 tiktoken==0.7.0
 python-Levenshtein>=0.12.0
 jsonschema==4.17.0
@@ -32,9 +32,19 @@ jsonschema==4.17.0
 langdetect==1.0.9
 rouge-score==0.1.2
 python-dateutil==2.9.0
+tensorflow-cpu==2.15.0
 
 pymongo==4.6.0
 bert-score==0.3.13
+
+# Example tasks (example_tasks/) and the chunking helpers
+attrs==23.2.0
+faiss-cpu==1.8.0
+openai==1.35.7
+python-dotenv==1.0.1
+matplotlib==3.9.0
+seaborn==0.13.2
+duckdb==1.0.0
 
 deepdiff==6.3.0
 PyYAML==6.0

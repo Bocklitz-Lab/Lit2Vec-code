@@ -39,7 +39,6 @@ _ZERO_SCORES: Dict[str, float] = {
     "BERTScore_F1": 0.0,
 }
 
-nltk.data.path.append("/home/mahmoud/nltk_data")
 nltk.download("punkt", quiet=True)
 
 warnings.filterwarnings("ignore", message="Some weights of RobertaModel")

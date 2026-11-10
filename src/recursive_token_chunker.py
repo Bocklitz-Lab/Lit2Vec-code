@@ -2,6 +2,7 @@
 # This script is adapted from the LangChain package, developed by LangChain AI.
 # Original code can be found at: https://github.com/langchain-ai/langchain/blob/master/libs/text-splitters/langchain_text_splitters/character.py
 # License: MIT License
+# Third-party code: see THIRD_PARTY_NOTICES.md for the license and copyright notice.
 
 from typing import Any, List, Optional
 from src.base_chunker import BaseChunker
@@ -48,6 +49,7 @@ class RecursiveTokenChunker(TextSplitter):
 
         # Load the correct tokenizer
         self._tokenizer = AutoTokenizer.from_pretrained(model_name)
+        self._tokenizer.model_max_length = max(self._tokenizer.model_max_length, 10**9)
 
         # Define token-based length function
         def token_length(text: str) -> int:

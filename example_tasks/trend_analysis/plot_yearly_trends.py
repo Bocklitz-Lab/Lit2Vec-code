@@ -2,7 +2,7 @@ import pandas as pd, seaborn as sns, matplotlib.pyplot as plt
 sns.set(style="whitegrid", context="talk")
 
 # Load and sort
-agg = pd.read_csv("yearly_trends__.csv").sort_values("year")
+agg = pd.read_csv("yearly_trends.csv").sort_values("year")
 
 # Filter: drop latest year and low-document years
 min_raman = 10; min_sers = 10

@@ -1,69 +1,37 @@
 # Security Policy
 
-## Supported Versions
+## Supported versions
 
-We maintain and support the latest tagged release of **Lit2Vec** (e.g., `v1.0.0`) and its corresponding codebase.
+There is no tagged release yet. Security fixes are made on the `main` branch.
 
-| Version    | Supported          |
-|------------|--------------------|
-| `main`     | ✅ Always supported |
-| `v1.0.x`   | ✅ Supported         |
-| `< v1.0.0` | ❌ Not supported    |
+## Reporting a vulnerability
 
----
+If you think you have found a security vulnerability, a data leak, or a license compliance problem in the code or in the released materials, please do not open a public GitHub issue. Write to the maintainers at **mahmoud.amiri@uni-jena.de** instead.
 
-## Reporting a Vulnerability
-
-If you believe you’ve found a **security vulnerability**, **data leak**, or **license compliance issue** in the Lit2Vec dataset or codebase:
-
-- Please **do not** open a public GitHub issue.
-- Instead, email the maintainers privately at:
-
-📫 **[security@yourdomain.org](mailto:security@yourdomain.org)**
-
-We will acknowledge receipt within **72 hours** and aim to provide a full response within **7 days**.
-
----
+We will acknowledge your message within 72 hours and aim to send a full response within 7 days.
 
 ## Scope
 
-This project has the following security surface:
+In scope:
 
-### ✅ In Scope
-- Inadvertent inclusion of non-CC-licensed or NoDerivatives (ND) content
-- Vulnerabilities in chunking/embedding pipelines that could expose private or unpublished data
-- Malicious code injection via dependencies (e.g., eval in markdown)
-- Disclosure of sensitive information in record metadata (e.g., emails, ORCIDs, author notes)
-- Insecure default configs (e.g., unrestricted ports or open APIs)
+- A record in the released materials whose license was resolved wrongly, for example no-derivatives (ND) content that passed the screening.
+- Code in the chunking, normalisation or embedding pipeline that could expose private or unpublished data, or execute content from a processed document.
+- Dependencies with known vulnerabilities that this project pins.
+- Personal information in the released materials, such as email addresses in record metadata.
+- API keys or other credentials committed to the repository or to the Hugging Face repositories.
 
-### ❌ Not in Scope
-- Vulnerabilities in upstream models (e.g., E5, DistilBART)
-- Biases or hallucinations from pseudo-labels or GPT summaries
-- Misuse of embeddings or dataset by downstream users
+Out of scope:
 
----
+- Vulnerabilities in upstream models such as e5-large-v2 or DistilBART.
+- Biases or errors in GPT-4o-generated pseudo-labels and summaries.
+- Misuse of the code, models or data by downstream users.
 
-## License and Compliance
+## Licenses and compliance
 
-All included data has been:
-- Collected only from sources with explicit **CC licenses that allow derivatives**
-- Processed to remove any **CC-BY-ND** or **all rights reserved** content
-- Annotated with `license_final` and `license_allows_derivatives` fields per record
+License screening in Lit2Vec is based on metadata from Unpaywall, OpenAlex and Crossref. It is an auditable filter, not legal clearance, and upstream records can be wrong or can change. The corpus itself is not redistributed. If you find a record that should not have passed the screening, or a released file that should not be public, please report it as described above. The [README](README.md) explains the screening rule and the licenses of the released materials.
 
-We encourage users to rerun `scripts/license_audit.py` for downstream due diligence.
+## What happens after a report
 
----
-
-## Responsible Disclosure Timeline
-
-1. Submit report via [security@yourdomain.org](mailto:security@yourdomain.org)
-2. We validate, patch, and regenerate any affected release(s)
-3. If the issue affects previously published versions, we notify:
-   - Zenodo (to deprecate the version)
-   - Hugging Face (if mirrored)
-   - Journal publisher (if applicable)
-4. Optional public disclosure with CVE if warranted
-
----
-
-Thank you for helping us keep Lit2Vec and the open science community secure and legally sound.
+1. We reproduce the problem and decide how serious it is.
+2. We fix it and, where the released materials are affected, update or withdraw the affected files on GitHub and Hugging Face.
+3. We credit you in the fix if you wish, and we publish a short note when the issue affected users.

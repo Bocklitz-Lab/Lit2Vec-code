@@ -1,48 +1,44 @@
-# Contributor Covenant Code of Conduct
+# Code of Conduct
 
-## Our Pledge
+## Our pledge
 
-We as members, contributors, and maintainers of the **Lit2Vec** project pledge to make participation in our community a harassment-free experience for everyone, regardless of age, body size, visible or invisible disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, religion, sexual identity and orientation, or any other status.
+We want everyone to be able to take part in Lit2Vec without being harassed, whatever their age, body size, disability, ethnicity, sex characteristics, gender identity and expression, experience, education, socio-economic status, nationality, appearance, race, religion, or sexual identity and orientation. This applies to students and senior researchers alike, and to people who are new to chemistry, text mining or open source.
 
-We commit to fostering a welcoming, safe, and inclusive environment built on respect and collaboration.
+## Standards
 
-## Our Standards
+Things that help the project:
 
-Examples of behavior that contributes to a positive environment include:
+- Being courteous, and assuming good faith until there is a reason not to.
+- Giving feedback on the work (code, data, results) and not on the person.
+- Acknowledging mistakes, including your own, and fixing them in the open.
+- Giving credit to the people whose code, data and ideas you build on.
+- Accepting that others may see a problem differently.
 
-- Using welcoming and inclusive language
-- Being respectful of differing viewpoints and experiences
-- Constructive feedback and open collaboration
-- Acknowledging mistakes and learning from them
-- Gracefully accepting critique and suggestions
+Things we will not accept:
 
-Examples of unacceptable behavior include:
+- Insults, derogatory comments, discriminatory jokes or language.
+- Harassment of any kind, in public or in private.
+- Publishing someone else's private information, such as an address or an unpublished manuscript, without their permission.
+- Sexual language or attention, and unwelcome contact.
+- Disruptive behaviour that gets in the way of other people's work, for example repeatedly derailing issues or pull requests.
 
-- Discriminatory jokes or language
-- Trolling, insulting, or derogatory comments
-- Harassment of any kind (public or private)
-- Publishing others' private information without consent
-- Sustained disruptive behavior that interrupts community collaboration
+## Responsibilities of the maintainers
 
-## Our Responsibilities
+The maintainers set the standards above and enforce them fairly. They may edit or remove comments, commits, issues, pull requests and other contributions that do not follow this Code of Conduct, and they will say why when they do.
 
-Project maintainers are responsible for clarifying standards of acceptable behavior and are expected to take appropriate and fair corrective action in response to any instances of unacceptable behavior.
+## Where it applies
 
-They have the right and responsibility to remove, edit, or reject comments, commits, code, issues, and other contributions that do not align with this Code of Conduct.
+This Code of Conduct applies in all project spaces: the GitHub repositories, the Hugging Face repositories and demo spaces, discussions and any other channel run by the project. It also applies when someone represents the project in public, for example in a talk or a publication.
 
-## Scope
+## Reporting and enforcement
 
-This Code of Conduct applies within all project spaces, including the GitHub repository, issues, pull requests, discussions, social media, and any other platform where community members interact — as well as at project-related events.
+Please report unacceptable behaviour by email to Mahmoud Amiri at **mahmoud.amiri@uni-jena.de**. If your report concerns Mahmoud Amiri, or you would rather not write to that address, write to Thomas Bocklitz at **Thomas.Bocklitz@uni-jena.de**.
 
-## Enforcement
-
-Instances of abusive, harassing, or otherwise unacceptable behavior may be reported confidentially by emailing **[yourname@institution.edu]**.
-
-All complaints will be reviewed and investigated promptly and fairly. The project team is obligated to maintain confidentiality and may involve others only as needed to resolve the issue.
+Every report will be read and looked into, and the people who receive it will keep the reporter's identity confidential. The response depends on what happened and can range from a private conversation or a written warning to a temporary or permanent ban from the project spaces.
 
 ## Attribution
 
-This Code of Conduct is adapted from the [Contributor Covenant][homepage], version 2.1, available at  
-https://www.contributor-covenant.org/version/2/1/code_of_conduct.html
+This Code of Conduct is adapted from the [Contributor Covenant][homepage], version 2.1, available at
+https://www.contributor-covenant.org/version/2/1/code_of_conduct.html.
 
 [homepage]: https://www.contributor-covenant.org
