@@ -2,6 +2,7 @@
 # This script is adapted from the LangChain package, developed by LangChain AI.
 # Original code can be found at: https://github.com/langchain-ai/langchain/blob/master/libs/text-splitters/langchain_text_splitters/base.py
 # License: MIT License
+# Third-party code: see THIRD_PARTY_NOTICES.md for the license and copyright notice.
 
 from abc import ABC, abstractmethod
 from enum import Enum

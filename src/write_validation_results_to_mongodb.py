@@ -1,3 +1,4 @@
+import argparse
 import os
 import json
 from glob import glob
@@ -7,8 +8,9 @@ from concurrent.futures import ProcessPoolExecutor, as_completed
 from tqdm import tqdm
 
 # -------------------- CONFIG --------------------
-JSON_DIR = "/mnt/d/data/validation_results_license_updated/"
-MONGO_URI = "mongodb://localhost:27017/"
+# The directory with the validation reports is a command-line argument.
+# The MongoDB connection string can be overridden with the MONGO_URI environment variable.
+MONGO_URI = os.environ.get("MONGO_URI", "mongodb://localhost:27017/")
 DB_NAME = "validation_db"
 COLLECTION_NAME = "document_validations"
 NUM_WORKERS = 32
@@ -166,7 +168,14 @@ def print_summary():
         client.close()
 
 def main():
-    parallel_ingest(JSON_DIR, num_workers=NUM_WORKERS)
+    parser = argparse.ArgumentParser(
+        description="Load Lit2Vec validation reports (one JSON file per record) into MongoDB."
+    )
+    parser.add_argument("json_dir", help="Directory containing the validation report *.json files.")
+    parser.add_argument("--workers", type=int, default=NUM_WORKERS, help="Reader processes (default: %(default)s).")
+    args = parser.parse_args()
+
+    parallel_ingest(args.json_dir, num_workers=args.workers)
     create_indexes()
     print_summary()
 

@@ -1,4 +1,4 @@
-# src/json_chunk_processor.py
+# src/ChunkProcessor.py
 
 import os
 import json

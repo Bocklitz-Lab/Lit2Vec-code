@@ -2,6 +2,7 @@
 # This script is adapted from the LangChain package, developed by LangChain AI.
 # Original code can be found at: https://github.com/langchain-ai/langchain/blob/master/libs/text-splitters/langchain_text_splitters/character.py
 # License: MIT License
+# Third-party code: see THIRD_PARTY_NOTICES.md for the license and copyright notice.
 
 from typing import Any, List, Optional
 from src.base_chunker import BaseChunker

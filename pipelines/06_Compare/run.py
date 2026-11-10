@@ -1,10 +1,10 @@
-# run_compare.py
+# pipelines/06_Compare/run.py
 
 import argparse
 import yaml
 import sys
 from pathlib import Path
-from src.ValidationComparator import ValidationComparator  # Note: lowercase filename
+from src.ValidationComparator import ValidationComparator
 
 def main():
     parser = argparse.ArgumentParser(description="Compare only record_hash hashes between two folders.")

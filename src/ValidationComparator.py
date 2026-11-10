@@ -1,4 +1,4 @@
-# src/validation_comparator.py
+# src/ValidationComparator.py
 
 import json
 from rich import print

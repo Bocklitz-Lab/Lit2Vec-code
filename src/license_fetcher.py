@@ -14,6 +14,9 @@ from urllib.parse import quote
 from urllib.request import Request, urlopen
 
 
+DEFAULT_USER_AGENT = "Lit2Vec/1.0 (+https://github.com/Bocklitz-Lab/Lit2Vec-code)"
+
+
 class LicenseFetchError(RuntimeError):
     """Raised when a remote license source cannot be queried successfully."""
 
@@ -22,7 +25,7 @@ class LicenseFetchError(RuntimeError):
 class LicenseFetcher:
     """Download and persist source-specific license payloads for a DOI."""
 
-    user_agent: str = "Lit2Vec/1.0 (mailto:unknown@example.org)"
+    user_agent: str | None = None
     timeout_seconds: int = 30
     unpaywall_email: str | None = None
     openalex_email: str | None = None
@@ -86,6 +89,19 @@ class LicenseFetcher:
         normalized = normalized.removeprefix("doi:")
         return normalized.strip()
 
+    def _resolve_user_agent(self) -> str:
+        """Use the caller's contact address (Crossref/OpenAlex polite pool) if one is configured."""
+        if self.user_agent:
+            return self.user_agent
+        email = (
+            self.unpaywall_email
+            or self.openalex_email
+            or self._get_env_value("UNPAYWALL_EMAIL", "OPENALEX_EMAIL", "EMAIL")
+        )
+        if email:
+            return f"{DEFAULT_USER_AGENT[:-1]}; mailto:{email})"
+        return DEFAULT_USER_AGENT
+
     @staticmethod
     def _timestamp() -> str:
         return datetime.now(timezone.utc).isoformat(timespec="seconds")
@@ -103,7 +119,7 @@ class LicenseFetcher:
         request = Request(
             url,
             headers={
-                "User-Agent": self.user_agent,
+                "User-Agent": self._resolve_user_agent(),
                 "Accept": "application/json",
             },
         )
@@ -131,8 +147,11 @@ def build_parser() -> argparse.ArgumentParser:
     )
     parser.add_argument(
         "--user-agent",
-        default="Lit2Vec/1.0 (mailto:unknown@example.org)",
-        help="HTTP user agent sent to upstream services.",
+        default=None,
+        help=(
+            "HTTP user agent sent to upstream services. By default it identifies Lit2Vec and, "
+            "if an email is given, adds it as a contact address."
+        ),
     )
     parser.add_argument(
         "--timeout-seconds",
