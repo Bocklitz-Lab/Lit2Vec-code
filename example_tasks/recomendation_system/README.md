@@ -9,7 +9,7 @@ Results can be filtered by publication year, by the confidence of a predicted su
 
 ## What you need
 
-- Records with an `abstract_embedding` and `metadata`. For the subfield filter they also need `predicted_subfield`, which the pipeline does not fill. You can generate it with `python -m src.subfield_predictor` (see the main [README](../../README.md)). The notebook reads its records from the folder in the `load_json_files(...)` call. At the moment that points to `example_docs/lit2vec_1K_sample_records`, which is not part of this repository, so change the path to your own folder of reconstructed records.
+- Records with an `abstract_embedding` and `metadata`. For the subfield filter they also need `predicted_subfield`, which the pipeline does not fill. You can generate it with `python -m src.subfield_predictor` (see the main [README](../../README.md)). The notebook reads its records from the folder in the `load_json_files(...)` call. At the moment that points to `example_docs/Lit2vec_sample_records_cc_by_all_sources`, a sample of CC-BY records included in this repository. To use your own data, change the path to your folder of reconstructed records.
 - The Python packages in the top-level `requirements.txt` (FAISS, `sentence-transformers`).
 
 ## Usage

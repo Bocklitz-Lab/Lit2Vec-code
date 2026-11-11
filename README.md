@@ -117,7 +117,7 @@ The notebooks in `notebooks/` produce the validation figures in the paper. Sever
 
 ## Example applications
 
-The folders under `example_tasks/` show three uses of a locally reconstructed corpus: retrieval-augmented question answering over paragraph embeddings with FAISS and GPT-4o (`RAG`), abstract-level paper recommendation with FAISS and maximal marginal relevance (`recomendation_system`), and a trend analysis of gold versus silver substrates in SERS and of 785 nm versus 532 nm excitation in Raman papers (`trend_analysis`).
+The folders under `example_tasks/` show three uses of a locally reconstructed corpus: retrieval-augmented question answering over paragraph embeddings with FAISS and GPT-4o or a local Ollama model (`RAG`), abstract-level paper recommendation with FAISS and maximal marginal relevance (`recomendation_system`), and a trend analysis of gold versus silver substrates in SERS and of 785 nm versus 532 nm excitation in Raman papers (`trend_analysis`).
 
 ## Models
 
