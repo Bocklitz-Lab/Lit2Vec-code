@@ -216,3 +216,7 @@ tmp/*
 
 # Output of the dataset downloader (tmp/s2ag.py): API listings, not source
 semantic_scholar_latest_release/
+
+# Large generated manifest (publish via release / HuggingFace, not git)
+lit2vec_manifest.csv.gz
+lit2vec_manifest.csv.gz.errors.txt
